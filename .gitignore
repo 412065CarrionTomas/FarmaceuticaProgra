@@ -1,0 +1,96 @@
+# ==============================
+# Archivos de configuración local
+# ==============================
+*.local.json
+*.local.settings.json
+
+# ==============================
+# Archivos de entorno
+# ==============================
+.env.local
+.env.development
+.env.production
+.env.test
+
+# ==============================
+# Archivos de logs y bases de datos temporales
+# ==============================
+*.log
+*.sqlite
+*.db
+
+# ==============================
+# Archivos de sistema operativo
+# ==============================
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ==============================
+# Archivos de dependencias (frontend opcional)
+# ==============================
+node_modules/
+bower_components/
+
+# ==============================
+# Archivos de pruebas y cobertura
+# ==============================
+coverage/
+*.coverage
+*.testresults
+TestResult*/
+*.trx
+
+# ==============================
+# Archivos de paquetes y compresión
+# ==============================
+*.zip
+*.tar
+*.tar.gz
+*.rar
+
+# ==============================
+# Archivos de salida de compilación (C# / .NET)
+# ==============================
+bin/
+obj/
+out/
+dist/
+build/
+[Bb]uild[Ll]og.*
+
+# ==============================
+# Archivos de usuario y temporales de Visual Studio / Rider
+# ==============================
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.userprefs
+*.vs/
+.vscode/
+.idea/
+
+# ==============================
+# Archivos de publicación
+# ==============================
+publish/
+*.pubxml
+*.publishsettings
+
+# ==============================
+# Archivos generados por herramientas
+# ==============================
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.ncrunchsolution
+*.ncrunchproject
+*.ncrunchenvironment
+*.DotSettings.user
+*.orig
+
+# ==============================
+# Archivos temporales del sistema
+# ==============================
+*.tmp
+*.temp

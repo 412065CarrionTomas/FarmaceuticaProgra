@@ -1,0 +1,194 @@
+﻿{
+   "CodeGenerationMode": 4,
+   "ContextClassName": "FarmaceuticaContext",
+   "ContextNamespace": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": false,
+   "MinimumProductVersion": "2.6.1186",
+   "ModelNamespace": null,
+   "OutputContextPath": null,
+   "OutputPath": "Models",
+   "PreserveCasingWithRegex": true,
+   "ProjectRootNamespace": "Domain",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 2,
+   "SelectedToBeGenerated": 0,
+   "T4TemplatePath": null,
+   "Tables": [
+      {
+         "Name": "[dbo].[AFILIADOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CLASIFICACIONES_SUMINISTROS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CLIENTES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[COBERTURAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[COMPRAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[DESCUENTOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[DETALLES_COMPRAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[DETALLES_FACTURAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[DETALLES_RECETAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[DOCTORES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[EMPLEADOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[EMPLEADOS_SUCURSALES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ESPECIALIDADES_MEDICOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ESTADOS_COBERTURAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[FACTURAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[INVENTARIOS_MEDICAMENTOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[INVENTARIOS_PRODUCTOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[LOCALIDADES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[LOTES_MEDICAMENTOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[LOTES_PRODUCTOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[MEDICAMENTOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[METODOS_PAGOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[OBRAS_SOCIALES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PAISES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PLANES_OBRAS_SOCIALES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PRODUCTOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PROVEEDORES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PROVINCIAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[RECETAS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[REPARTIDORES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[RESTRICCIONES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SUCURSALES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TIPOS_DESCUENTOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TIPOS_DOCUMENTOS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TIPOS_PRESENTACIONES]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TIPOS_SUMINISTROS]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[UNIDADES_MEDIDAS]",
+         "ObjectType": 0
+      }
+   ],
+   "UiHint": null,
+   "UncountableWords": null,
+   "UseAsyncStoredProcedureCalls": true,
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": false,
+   "UseDatabaseNamesForRoutines": true,
+   "UseDateOnlyTimeOnly": true,
+   "UseDbContextSplitting": false,
+   "UseDecimalDataAnnotationForSprocResult": true,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseHierarchyId": false,
+   "UseInflector": false,
+   "UseInternalAccessModifiersForSprocsAndFunctions": false,
+   "UseLegacyPluralizer": false,
+   "UseManyToManyEntity": false,
+   "UseNoDefaultConstructor": false,
+   "UseNoNavigations": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UsePrefixNavigationNaming": false,
+   "UseSchemaFolders": false,
+   "UseSchemaNamespaces": false,
+   "UseSpatial": false,
+   "UseT4": false,
+   "UseT4Split": false
+}
