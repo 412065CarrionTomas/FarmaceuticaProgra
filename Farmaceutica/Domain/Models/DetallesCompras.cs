@@ -21,6 +21,8 @@ public partial class DetallesCompras
 
     public int? LoteMedicamentoId { get; set; }
 
+    public int? Activo { get; set; }
+
     public virtual Compras Compra { get; set; }
 
     public virtual LotesMedicamentos LoteMedicamento { get; set; }

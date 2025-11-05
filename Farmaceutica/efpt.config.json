@@ -162,6 +162,10 @@
       {
          "Name": "[dbo].[UNIDADES_MEDIDAS]",
          "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[sp_TraerTablas]",
+         "ObjectType": 1
       }
    ],
    "UiHint": null,

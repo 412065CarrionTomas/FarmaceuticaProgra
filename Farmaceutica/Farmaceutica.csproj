@@ -23,9 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-    <Folder Include="Infrastructure\" />
-    <Folder Include="Application\" />
+    <None Include="efpt.config.json.user" />
   </ItemGroup>
 
 </Project>

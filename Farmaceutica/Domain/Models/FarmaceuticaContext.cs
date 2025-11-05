@@ -192,6 +192,7 @@ public partial class FarmaceuticaContext : DbContext
             entity.ToTable("COMPRAS");
 
             entity.Property(e => e.CompraId).HasColumnName("CompraID");
+            entity.Property(e => e.Activo).HasColumnName("activo");
             entity.Property(e => e.EmpleadoId).HasColumnName("EmpleadoID");
             entity.Property(e => e.FechaCompra)
                 .HasPrecision(3)
@@ -259,6 +260,7 @@ public partial class FarmaceuticaContext : DbContext
             entity.ToTable("DETALLES_COMPRAS");
 
             entity.Property(e => e.DetalleCompraId).HasColumnName("Detalle_CompraID");
+            entity.Property(e => e.Activo).HasColumnName("activo");
             entity.Property(e => e.CodigoBarraMedicamentoId)
                 .HasMaxLength(150)
                 .IsUnicode(false)
