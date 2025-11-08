@@ -19,5 +19,7 @@ public partial class Proveedores
 
     public string EmailProveedor { get; set; }
 
+    public int? Activo { get; set; }
+
     public virtual ICollection<Compras> Compras { get; set; } = new List<Compras>();
 }

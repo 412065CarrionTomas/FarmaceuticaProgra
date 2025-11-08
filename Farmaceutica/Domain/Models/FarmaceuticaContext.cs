@@ -733,6 +733,7 @@ public partial class FarmaceuticaContext : DbContext
             entity.ToTable("PROVEEDORES");
 
             entity.Property(e => e.ProveedorId).HasColumnName("ProveedorID");
+            entity.Property(e => e.Activo).HasColumnName("activo");
             entity.Property(e => e.Cuit)
                 .HasMaxLength(50)
                 .IsUnicode(false)

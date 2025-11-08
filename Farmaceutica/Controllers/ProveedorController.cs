@@ -1,4 +1,6 @@
-﻿using Azure.Messaging;
+﻿using System.Security.Authentication;
+using Azure.Messaging;
+using Farmaceutica.Application.DTOs;
 using Farmaceutica.Application.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -22,7 +24,33 @@ namespace Farmaceutica.Controllers
         public async Task<IActionResult> Get(string? nombre)
         {
             var result = await _ProveedorServices.GetProveedoresAsync(nombre);
-            if(result == null) { return NotFound("No hay proveedores."); }
+            if (result == null) { return NotFound("No hay proveedores."); }
+            return Ok(result);
+        }
+
+        [HttpPut("insert_proveedor")]
+        public async Task<IActionResult> Put([FromBody] ProveedoresDTOs value)
+        {
+            var result = await _ProveedorServices.InsertProveedorAsync(value);
+            if (result == false) { return BadRequest("Hubo un problema en el insert del proveedor"); }
+            return Ok(result);
+        }
+
+        [HttpPost("update_proveedor")]
+        public async Task<IActionResult> Post([FromQuery] string cuit, [FromBody] ProveedoresDTOs value)
+        {
+            if (string.IsNullOrEmpty(cuit)) { return BadRequest("No pued eingresar cuit vacio."); }
+            var result = await _ProveedorServices.UpdateProveedorAsync(cuit, value);
+            if (result == false) { return BadRequest("Hubo un problema en la actualizacion del proveedor"); }
+            return Ok(result);
+        }
+
+        [HttpDelete("delete_proveedor")]
+        public async Task<IActionResult> Delete([FromQuery] string cuit)
+        {
+            if (string.IsNullOrEmpty(cuit)) { return BadRequest("No pued eingresar cuit vacio."); }
+            var result = await _ProveedorServices.DeleteProveedorAsync(cuit);
+            if (result == false) { return BadRequest("Hubo un problema en la eliminacion del Proveedor."); }
             return Ok(result);
         }
     }

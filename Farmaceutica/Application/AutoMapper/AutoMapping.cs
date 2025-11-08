@@ -1,10 +1,11 @@
 ﻿using AutoMapper;
 using Domain.Models;
+using Farmaceutica.Application.DTOs;
 using Farmaceutica.Application.DTOs.CompraDTOs;
 
 namespace Farmaceutica.Application.AutoMapper
 {
-    public class AutoMapping:Profile
+    public class AutoMapping : Profile
     {
         public AutoMapping()
         {
@@ -23,6 +24,9 @@ namespace Farmaceutica.Application.AutoMapper
                     acc.MapFrom(dom => dom.DetallesCompras))
                 .ForMember(dto => dto.Activo, acc =>
                     acc.MapFrom(dom => dom.Activo));
+
+            //PROVEEDORES
+            CreateMap<ProveedoresDTOs, Proveedores>();
 
         }
     }

@@ -20,7 +20,7 @@ namespace Farmaceutica.Infrastructure.Repositories
         public async Task<bool> DeleteCompraAsync(int id)
         {
             Compras? objTrack = await _Context.Compras.FindAsync(id);
-            if(objTrack == null) { return false; }
+            if (objTrack == null) { return false; }
             objTrack.Activo = 0;
             return await _Context.SaveChangesAsync() > 0;
         }
@@ -54,13 +54,13 @@ namespace Farmaceutica.Infrastructure.Repositories
             );
 
             // Validar que los valores no sean null
-            if (empleadoID.Value == null) 
+            if (empleadoID.Value == null)
                 throw new ArgumentException("EmpleadoID no encontrado");
-            if (proveedorID.Value == null) 
+            if (proveedorID.Value == null)
                 throw new ArgumentException("ProveedorID no encontrado");
-            if (repartidorID.Value == null) 
+            if (repartidorID.Value == null)
                 throw new ArgumentException("RepartidorID no encontrado");
-            if (sucursalID.Value == null) 
+            if (sucursalID.Value == null)
                 throw new ArgumentException("SucursalID no encontrado");
 
             var maestro = new Compras()
@@ -74,7 +74,7 @@ namespace Farmaceutica.Infrastructure.Repositories
                 Activo = compra.Activo
             };
 
-             await _Context.Compras.AddAsync(maestro);
+            await _Context.Compras.AddAsync(maestro);
 
             return await _Context.SaveChangesAsync() > 0;
         }

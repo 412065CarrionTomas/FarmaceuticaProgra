@@ -413,6 +413,26 @@ add activo int
 alter table DETALLES_COMPRAS
 add activo int 
 
+alter table PROVEEDORES
+add activo int
+
+
+alter procedure sp_TraerTablas
+    @empleado_dni int ,
+    @proveedor varchar(100) ,
+    @repartidor varchar(100) ,
+    @sucursal varchar(100),
+    @empleadoID int output,
+    @proveedorID int output,
+    @repartidorID int output,
+    @sucursalID int output
+as
+begin
+    set @empleadoID  = (SELECT EmpleadoID FROM EMPLEADOS WHERE DocumentoEmpleado = @empleado_dni)
+    set @proveedorID  = (SELECT ProveedorID FROM PROVEEDORES WHERE RazonSocial = @proveedor);
+    set @repartidorID  = (SELECT RepartidorID FROM REPARTIDORES WHERE EmailRepartidor like @repartidor);
+    set @sucursalID  = (SELECT SucursalID FROM SUCURSALES WHERE Descripcion = @sucursal);
+end
 
 
 
@@ -425,7 +445,7 @@ add activo int
 
 
 /* ----------------------------------------------------------------
-   1) LOOKUPS / TABLAS AUXILIARES (mínimo 5 registros cada una)
+   1) LOOKUPS / TABLAS AUXILIARES (mï¿½nimo 5 registros cada una)
    ---------------------------------------------------------------- */
 
 /* TIPOS_DOCUMENTOS (5) */
@@ -467,7 +487,7 @@ GO
 /* TIPOS_PRESENTACIONES (5) */
 INSERT INTO TIPOS_PRESENTACIONES (Descripcion) VALUES
 ('Tbl 500mg'),
-('Cápsula 250mg'),
+('Cï¿½psula 250mg'),
 ('Jarabe 100ml'),
 ('Inyectable 2ml'),
 ('Crema 30g');
@@ -486,17 +506,17 @@ GO
 INSERT INTO TIPOS_SUMINISTROS (Descripcion) VALUES
 ('Medicamento'),
 ('Producto General'),
-('Cosmético'),
-('Insumo Médico'),
+('Cosmï¿½tico'),
+('Insumo Mï¿½dico'),
 ('Suplemento');
 GO
 
 /* CLASIFICACIONES_SUMINISTROS (5) */
 INSERT INTO CLASIFICACIONES_SUMINISTROS (Descripcion) VALUES
 ('Analgesico'),
-('Antibiótico'),
+('Antibiï¿½tico'),
 ('Antiinflamatorio'),
-('Dermatológico'),
+('Dermatolï¿½gico'),
 ('Suplemento Alimenticio');
 GO
 
@@ -505,13 +525,13 @@ INSERT INTO RESTRICCIONES (Descripcion) VALUES
 ('Venta libre'),
 ('Con receta'),
 ('Controlada'),
-('Pediátrica'),
+('Pediï¿½trica'),
 ('Uso hospitalario');
 GO
 
 /* TIPOS_DESCUENTOS (5) */
 INSERT INTO TIPOS_DESCUENTOS (Descripcion) VALUES
-('Promoción local'),
+('Promociï¿½n local'),
 ('Obra social'),
 ('Descuento por volumen'),
 ('Descuento estacional'),
@@ -521,8 +541,8 @@ GO
 /* METODOS_PAGOS (5) */
 INSERT INTO METODOS_PAGOS (Descripcion) VALUES
 ('Efectivo'),
-('Tarjeta Débito'),
-('Tarjeta Crédito'),
+('Tarjeta Dï¿½bito'),
+('Tarjeta Crï¿½dito'),
 ('Transferencia'),
 ('Cuenta Corriente');
 GO
@@ -530,10 +550,10 @@ GO
 /* ESPECIALIDADES_MEDICOS (5) */
 INSERT INTO ESPECIALIDADES_MEDICOS (Nombre_Especialidad) VALUES
 ('Generalista'),
-('Pediatría'),
-('Dermatología'),
-('Cardiología'),
-('Traumatología');
+('Pediatrï¿½a'),
+('Dermatologï¿½a'),
+('Cardiologï¿½a'),
+('Traumatologï¿½a');
 GO
 
 /* OBRAS_SOCIALES (5) */
@@ -549,13 +569,13 @@ GO
 INSERT INTO PLANES_OBRAS_SOCIALES (Descripcion, Obra_SocialID) VALUES
 ('OSDE 210','1'),
 ('Swiss Plan A','2'),
-('Galeno Básico','3'),
+('Galeno Bï¿½sico','3'),
 ('IOMA General','4'),
 ('OSP Plan 1','5');
 GO
 
 /* ----------------------------------------------------------------
-   2) PROVEEDORES, REPARTIDORES, SUCURSALES (mínimo 20 para principales)
+   2) PROVEEDORES, REPARTIDORES, SUCURSALES (mï¿½nimo 20 para principales)
    ---------------------------------------------------------------- */
 
 /* PROVEEDORES (20) */
@@ -585,7 +605,7 @@ GO
 /* REPARTIDORES (20) */
 INSERT INTO REPARTIDORES (NombreRepartidor, ApellidoRepartidor, TelefonoRepartidor, EmailRepartidor) VALUES
 ('Carlos','Gomez','011-15-1111-0001','c.gomez@repartidor.com'),
-('María','Lopez','011-15-1111-0002','m.lopez@repartidor.com'),
+('Marï¿½a','Lopez','011-15-1111-0002','m.lopez@repartidor.com'),
 ('Jorge','Martinez','011-15-1111-0003','j.martinez@repartidor.com'),
 ('Ana','Fernandez','011-15-1111-0004','a.fernandez@repartidor.com'),
 ('Lucas','Diaz','011-15-1111-0005','l.diaz@repartidor.com'),
@@ -639,22 +659,22 @@ INSERT INTO PRODUCTOS (Codigo_Barra_ProductoID, Nombre_Producto, Precio_Producto
 ('PROD0001','Jabon en barra','120.00',2,4,1,4),
 ('PROD0002','Shampoo 250ml','350.00',2,4,3,3),
 ('PROD0003','Alcohol en gel 500ml','450.00',2,4,3,3),
-('PROD0004','Termómetro digital','1200.00',4,1,1,4),
+('PROD0004','Termï¿½metro digital','1200.00',4,1,1,4),
 ('PROD0005','Guantes descartables 100u','800.00',4,1,1,4),
 ('PROD0006','Esparadrapo 10m','60.00',4,1,1,4),
 ('PROD0007','Algodon 100g','50.00',4,1,1,4),
 ('PROD0008','Cepillo dental','200.00',2,4,1,4),
-('PROD0009','Pañales adulto','1500.00',2,4,1,4),
+('PROD0009','Paï¿½ales adulto','1500.00',2,4,1,4),
 ('PROD0010','Toallitas humedas','400.00',2,4,1,4),
 ('PROD0011','Camiseta compresion','2200.00',2,1,1,4),
 ('PROD0012','Mascarilla N95','180.00',4,1,1,4),
 ('PROD0013','Baterias AA x4','300.00',2,4,1,4),
-('PROD0014','Termo para medicación','900.00',2,4,1,4),
+('PROD0014','Termo para medicaciï¿½n','900.00',2,4,1,4),
 ('PROD0015','Silla de ruedas simple','15000.00',4,1,1,4),
 ('PROD0016','Bolsa de hielo reutilizable','350.00',2,4,1,4),
 ('PROD0017','Curitas surtidas x20','120.00',2,4,1,4),
-('PROD0018','Linterna pequeña','250.00',2,4,1,4),
-('PROD0019','Cinta métrica','100.00',2,4,1,4),
+('PROD0018','Linterna pequeï¿½a','250.00',2,4,1,4),
+('PROD0019','Cinta mï¿½trica','100.00',2,4,1,4),
 ('PROD0020','Termo infantil','600.00',2,4,1,4);
 GO
 
@@ -670,15 +690,15 @@ INSERT INTO MEDICAMENTOS (Codigo_Barra_MedicamentoID, Nombre_Medicamento, Precio
 ('MED0008','Omeprazol 20mg','320.00',1,1,1,1,1),
 ('MED0009','Insulina humalog','2500.00',1,4,1,1,4),
 ('MED0010','Aspirina 100mg','90.00',1,1,1,1,1),
-('MED0011','Antihistamínico 10mg','180.00',1,1,1,1,1),
-('MED0012','Antiséptico líquido 250ml','220.00',3,3,4,1,1),
+('MED0011','Antihistamï¿½nico 10mg','180.00',1,1,1,1,1),
+('MED0012','Antisï¿½ptico lï¿½quido 250ml','220.00',3,3,4,1,1),
 ('MED0013','Broncodilatador inhalador','1500.00',1,4,1,1,3),
-('MED0014','Antibiótico tópico 15g','360.00',5,5,2,1,1),
-('MED0015','Crema dermatológica 30g','420.00',5,5,4,1,1),
+('MED0014','Antibiï¿½tico tï¿½pico 15g','360.00',5,5,2,1,1),
+('MED0015','Crema dermatolï¿½gica 30g','420.00',5,5,4,1,1),
 ('MED0016','Jarabe para la tos 120ml','280.00',3,3,1,1,1),
 ('MED0017','Suplemento hierro 30cap','260.00',1,1,5,5,1),
 ('MED0018','Colirio 10ml','390.00',3,3,4,1,1),
-('MED0019','Analgésico tópico 50g','310.00',5,5,3,1,1),
+('MED0019','Analgï¿½sico tï¿½pico 50g','310.00',5,5,3,1,1),
 ('MED0020','Gel musculares 100g','340.00',5,5,3,1,1);
 GO
 
@@ -740,23 +760,23 @@ GO
 
 /* CLIENTES (20) -> Tipo_DocumentoID 1..5, LocalidadID 1..5 */
 INSERT INTO CLIENTES (NombreCliente, ApellidoCliente, Fecha_Nacimiento_Cliente, TelefonoCliente, Tipo_DocumentoID, DireccionCliente, LocalidadID, EmailCliente, DocumentoCliente) VALUES
-('Juan','Pérez','1980-05-10','011-15-1111-1001',1,'Calle Falsa 123',1,'juan.perez@mail.com','12345678'),
-('María','González','1990-07-21','011-15-1111-1002',1,'Calle 2 45',2,'maria.gonzalez@mail.com','23456789'),
-('Carlos','Ramírez','1975-02-18','011-15-1111-1003',2,'Av. Siempre 200',3,'carlos.ramirez@mail.com','34567890'),
-('Lucía','Fernández','1988-11-02','011-15-1111-1004',1,'Calle Linda 56',4,'lucia.fernandez@mail.com','45678901'),
-('Ana','Martínez','1995-03-30','011-15-1111-1005',3,'Av. Verde 77',5,'ana.martinez@mail.com','56789012'),
+('Juan','Pï¿½rez','1980-05-10','011-15-1111-1001',1,'Calle Falsa 123',1,'juan.perez@mail.com','12345678'),
+('Marï¿½a','Gonzï¿½lez','1990-07-21','011-15-1111-1002',1,'Calle 2 45',2,'maria.gonzalez@mail.com','23456789'),
+('Carlos','Ramï¿½rez','1975-02-18','011-15-1111-1003',2,'Av. Siempre 200',3,'carlos.ramirez@mail.com','34567890'),
+('Lucï¿½a','Fernï¿½ndez','1988-11-02','011-15-1111-1004',1,'Calle Linda 56',4,'lucia.fernandez@mail.com','45678901'),
+('Ana','Martï¿½nez','1995-03-30','011-15-1111-1005',3,'Av. Verde 77',5,'ana.martinez@mail.com','56789012'),
 ('Diego','Alvarez','1983-06-12','011-15-1111-1006',1,'Calle Azul 88',1,'diego.alvarez@mail.com','67890123'),
-('Sofía','Sánchez','1992-09-09','011-15-1111-1007',4,'Boulevard 9',2,'sofia.sanchez@mail.com','78901234'),
-('Martín','Romero','1979-12-25','011-15-1111-1008',1,'Av. 10',3,'martin.romero@mail.com','89012345'),
+('Sofï¿½a','Sï¿½nchez','1992-09-09','011-15-1111-1007',4,'Boulevard 9',2,'sofia.sanchez@mail.com','78901234'),
+('Martï¿½n','Romero','1979-12-25','011-15-1111-1008',1,'Av. 10',3,'martin.romero@mail.com','89012345'),
 ('Carolina','Ortiz','1985-08-08','011-15-1111-1009',2,'Calle 11',4,'carolina.ortiz@mail.com','90123456'),
 ('Federico','Rojas','1991-04-15','011-15-1111-1010',1,'Pje. 12',5,'federico.rojas@mail.com','01234567'),
 ('Patricia','Vega','1986-10-10','011-15-1111-1011',3,'Av. 13',1,'patricia.vega@mail.com','11223344'),
-('Raúl','Núñez','1970-01-05','011-15-1111-1012',1,'Calle 14',2,'raul.nunez@mail.com','22334455'),
-('Verónica','Cáceres','1982-02-20','011-15-1111-1013',2,'Av. 15',3,'veronica.caceres@mail.com','33445566'),
+('Raï¿½l','Nï¿½ï¿½ez','1970-01-05','011-15-1111-1012',1,'Calle 14',2,'raul.nunez@mail.com','22334455'),
+('Verï¿½nica','Cï¿½ceres','1982-02-20','011-15-1111-1013',2,'Av. 15',3,'veronica.caceres@mail.com','33445566'),
 ('Gonzalo','Molina','1993-11-11','011-15-1111-1014',1,'Calle 16',4,'gonzalo.molina@mail.com','44556677'),
 ('Noelia','Paz','1996-07-07','011-15-1111-1015',1,'Av. 17',5,'noelia.paz@mail.com','55667788'),
-('Hernán','Iriarte','1981-09-01','011-15-1111-1016',1,'Calle 18',1,'hernan.iriarte@mail.com','66778899'),
-('Mónica','Salas','1978-03-03','011-15-1111-1017',2,'Av. 19',2,'monica.salas@mail.com','77889900'),
+('Hernï¿½n','Iriarte','1981-09-01','011-15-1111-1016',1,'Calle 18',1,'hernan.iriarte@mail.com','66778899'),
+('Mï¿½nica','Salas','1978-03-03','011-15-1111-1017',2,'Av. 19',2,'monica.salas@mail.com','77889900'),
 ('Bruno','Castro','1994-05-05','011-15-1111-1018',4,'Calle 20',3,'bruno.castro@mail.com','88990011'),
 ('Paula','Arias','1987-06-06','011-15-1111-1019',1,'Pje. 21',4,'paula.arias@mail.com','99001122'),
 ('Emiliano','Sierra','1999-12-12','011-15-1111-1020',1,'Av. 22',5,'emiliano.sierra@mail.com','10111213');
@@ -771,19 +791,19 @@ INSERT INTO EMPLEADOS (NombreEmpleado, ApellidoEmpleado, Fecha_Nacimiento_Emplea
 ('Jimena','Suarez','1992-05-05','Calle 6','011-15-2222-2005','jimena.suarez@trab.com',5,1,'60123456'),
 ('Hector','Mendez','1980-06-06','Av. 7','011-15-2222-2006','hector.mendez@trab.com',1,3,'70123456'),
 ('Vanesa','Lopez','1995-07-07','Calle 8','011-15-2222-2007','vanesa.lopez@trab.com',2,1,'80123456'),
-('Germán','Paz','1989-08-08','Av. 9','011-15-2222-2008','german.paz@trab.com',3,1,'90123456'),
+('Germï¿½n','Paz','1989-08-08','Av. 9','011-15-2222-2008','german.paz@trab.com',3,1,'90123456'),
 ('Silvia','Gimenez','1974-09-09','Calle 10','011-15-2222-2009','silvia.gimenez@trab.com',4,2,'01234567'),
 ('Ruben','Diaz','1983-10-10','Av. 11','011-15-2222-2010','ruben.diaz@trab.com',5,1,'11223344'),
 ('Lourdes','Nava','1991-11-11','Calle 12','011-15-2222-2011','lourdes.nava@trab.com',1,1,'12233445'),
 ('Esteban','Campos','1973-12-12','Av. 13','011-15-2222-2012','esteban.campos@trab.com',2,1,'13243546'),
-('Rocío','Silva','1986-01-01','Calle 14','011-15-2222-2013','rocio.silva@trab.com',3,1,'14253647'),
+('Rocï¿½o','Silva','1986-01-01','Calle 14','011-15-2222-2013','rocio.silva@trab.com',3,1,'14253647'),
 ('Omar','Blanco','1979-02-02','Av. 15','011-15-2222-2014','omar.blanco@trab.com',4,1,'15263748'),
 ('Gabriela','Aguirre','1988-03-03','Calle 16','011-15-2222-2015','gabriela.aguirre@trab.com',5,2,'16273849'),
-('Iván','Ferrer','1993-04-04','Av. 17','011-15-2222-2016','ivan.ferrer@trab.com',1,1,'17283950'),
+('Ivï¿½n','Ferrer','1993-04-04','Av. 17','011-15-2222-2016','ivan.ferrer@trab.com',1,1,'17283950'),
 ('Agustina','Leiva','1994-05-05','Calle 18','011-15-2222-2017','agustina.leiva@trab.com',2,1,'18294051'),
 ('Tomas','Mora','1982-06-06','Av. 19','011-15-2222-2018','tomas.mora@trab.com',3,1,'19304152'),
 ('Natalia','Pinto','1985-07-07','Calle 20','011-15-2222-2019','natalia.pinto@trab.com',4,4,'20314253'),
-('Joaquín','Ramires','1996-08-08','Av. 21','011-15-2222-2020','joaquin.ramires@trab.com',5,1,'21324354');
+('Joaquï¿½n','Ramires','1996-08-08','Av. 21','011-15-2222-2020','joaquin.ramires@trab.com',5,1,'21324354');
 GO
 
 /* ----------------------------------------------------------------
@@ -800,26 +820,26 @@ GO
 
 /* DOCTORES (20) -> EspecialidadID 1..5 */
 INSERT INTO DOCTORES (Nombre_Doctor, Apellido_Doctor, Matricula_Doctor, EspecialidadID) VALUES
-('Martin','López','MAT001',1),
-('Carina','González','MAT002',2),
+('Martin','Lï¿½pez','MAT001',1),
+('Carina','Gonzï¿½lez','MAT002',2),
 ('Pablo','Sosa','MAT003',3),
 ('Ana','Ruiz','MAT004',4),
 ('Diego','Navarro','MAT005',5),
-('Laura','Pérez','MAT006',1),
+('Laura','Pï¿½rez','MAT006',1),
 ('Javier','Torres','MAT007',2),
-('Silvina','García','MAT008',3),
+('Silvina','Garcï¿½a','MAT008',3),
 ('Fernando','Herrera','MAT009',4),
-('Verónica','Luna','MAT010',5),
+('Verï¿½nica','Luna','MAT010',5),
 ('Santiago','Mares','MAT011',1),
-('Rocío','Díaz','MAT012',2),
+('Rocï¿½o','Dï¿½az','MAT012',2),
 ('Gustavo','Mora','MAT013',3),
 ('Mariana','Salazar','MAT014',4),
-('Raúl','Ortíz','MAT015',5),
+('Raï¿½l','Ortï¿½z','MAT015',5),
 ('Natalia','Cuevas','MAT016',1),
 ('Emilio','Bravo','MAT017',2),
 ('Liliana','Paz','MAT018',3),
-('Hernán','Iglesias','MAT019',4),
-('Mónica','Rey','MAT020',5);
+('Hernï¿½n','Iglesias','MAT019',4),
+('Mï¿½nica','Rey','MAT020',5);
 GO
 
 /* RECETAS (20) -> AfiliadoID 1..20, DoctorID 1..20 */
