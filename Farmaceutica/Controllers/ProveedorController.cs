@@ -20,10 +20,19 @@ namespace Farmaceutica.Controllers
         }
 
         // GET: api/<ProveedorController>
-        [HttpGet("proveedor")]
+        [HttpGet("proveedores")]
+        public async Task<IActionResult> GetAll()
+        {
+            var result = await _ProveedorServices.GetAllProveedoresAsync();
+            if (result == null) { return NotFound("No hay proveedores"); }
+            return Ok(result);
+        }
+
+        // GET: api/<ProveedorController>
+        [HttpGet("proveedores_por_nombre")]
         public async Task<IActionResult> Get(string? nombre)
         {
-            var result = await _ProveedorServices.GetProveedoresAsync(nombre);
+            var result = await _ProveedorServices.GetProveedoresByNameAsync(nombre);
             if (result == null) { return NotFound("No hay proveedores."); }
             return Ok(result);
         }

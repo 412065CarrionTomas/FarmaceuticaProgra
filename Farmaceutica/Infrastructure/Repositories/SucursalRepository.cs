@@ -2,6 +2,8 @@
 using Farmaceutica.Application.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.SqlServer.Query.Internal;
+using System.Linq.Expressions;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Farmaceutica.Infrastructure.Repositories
 {
@@ -14,12 +16,15 @@ namespace Farmaceutica.Infrastructure.Repositories
             _Context = context;
         }
 
-        public async Task<List<string>> GetSucursalesAsync(string? nombre = null)
+        public async Task<List<Sucursales>?> GetSucursalesAsync(Expression<Func<Sucursales, bool>>? condicion)
         {
+            if(condicion == null)
+            {
+                return await _Context.Sucursales.ToListAsync();
+            }
+
             return await _Context.Sucursales
-                .Where(x => string.IsNullOrEmpty(nombre) || x.Descripcion.Contains(nombre))
-                .Select(x => x.Descripcion)
-                .ToListAsync();
+                .Where(condicion).ToListAsync();
         }
     }
 }

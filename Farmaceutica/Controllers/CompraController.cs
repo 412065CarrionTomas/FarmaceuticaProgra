@@ -17,13 +17,18 @@ namespace Farmaceutica.Controllers
             _CompraServices = compraServices;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> Get()
+        // GET: api/<CompraController>
+        [HttpGet("compras_por_filtros")]
+        public async Task<IActionResult> GetCompra(DateTime? fechaInicio = null
+                                                        , DateTime? fechaFin = null
+                                                        , string? sucursal = null
+                                                        , string? proveedor = null)
         {
-            var result = await _CompraServices.GetComprasAsync();
-            if(result == null) { return NotFound(); }
-            return Ok(result);
+            var listDto = await _CompraServices.GetComprasByFilters(fechaInicio, fechaFin, sucursal, proveedor);
+            if (listDto == null) { return NotFound(); }
+            return Ok(listDto);
         }
+
 
         [HttpPost("insertar_maestro_detalle")]
         public async Task<IActionResult> Post([FromBody] CompraDto value)

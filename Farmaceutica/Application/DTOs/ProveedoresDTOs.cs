@@ -13,5 +13,7 @@ namespace Farmaceutica.Application.DTOs
         public string? TelefonoProveedor { get; set; }
 
         public string? EmailProveedor { get; set; }
+
+        public int? Activo { get; set; }
     }
 }

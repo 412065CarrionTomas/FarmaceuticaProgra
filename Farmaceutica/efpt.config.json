@@ -164,6 +164,14 @@
          "ObjectType": 0
       },
       {
+         "Name": "[dbo].[VwMedicamentoTop]",
+         "ObjectType": 3
+      },
+      {
+         "Name": "[dbo].[VwProductoTop]",
+         "ObjectType": 3
+      },
+      {
          "Name": "[dbo].[sp_TraerTablas]",
          "ObjectType": 1
       }

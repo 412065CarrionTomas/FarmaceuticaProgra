@@ -5,6 +5,9 @@ using Farmaceutica.Application.AutoMapper;
 using Farmaceutica.Application.Interfaces;
 using Farmaceutica.Application.Services;
 using Farmaceutica.Infrastructure.Repositories;
+using FarmaceuticaBD1.Application.Interfaces;
+using FarmaceuticaBD1.Application.Services;
+using FarmaceuticaBD1.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 namespace Farmaceutica
@@ -38,6 +41,18 @@ namespace Farmaceutica
             //COMPRAS
             builder.Services.AddScoped<ICompraRepository, CompraRepository>();
             builder.Services.AddScoped<CompraServices>();
+
+            //FACTURAS
+            builder.Services.AddScoped<IFacturaRepository, FacturaRepository>();
+            builder.Services.AddScoped<FacturaServices>();
+
+            //MEDICAMENTOS
+            builder.Services.AddScoped<IMedicamentoRepository, MedicamentoRepository>();
+            builder.Services.AddScoped<MedicamentoServices>();
+
+            //PRODUCTOS
+            builder.Services.AddScoped<IProductoRepository, ProductoRepository>();
+            builder.Services.AddScoped<ProductoServices>();
 
             var app = builder.Build();
 

@@ -27,11 +27,16 @@ namespace Farmaceutica.Infrastructure.Repositories
 
         public async Task<List<Compras>?> GetComprasAsync(Expression<Func<Compras, bool>> condicion)
         {
-            return await _Context.Compras.Include(x => x.Empleado)
-                .Include(x => x.Proveedor)
-                .Include(x => x.Repartidor)
-                .Include(x => x.Sucursal)
+            return await _Context.Compras
                 .Include(x => x.DetallesCompras)
+                    .ThenInclude(x => x.LoteMedicamento)
+                    .ThenInclude(x => x.Medicamento)
+                .Include(x => x.DetallesCompras)
+                    .ThenInclude(x => x.LoteProducto)
+                    .ThenInclude(x => x.Producto)
+                .Include(x => x.Empleado)
+                .Include(x => x.Sucursal)
+                .Include(x => x.Proveedor)
                 .Where(condicion).ToListAsync();
         }
 

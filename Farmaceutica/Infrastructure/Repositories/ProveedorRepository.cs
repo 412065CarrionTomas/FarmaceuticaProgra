@@ -16,7 +16,6 @@ namespace Farmaceutica.Infrastructure.Repositories
         {
             _Context = context;
         }
-
         public async Task<bool> DeleteProveedorAsync(string cuit)
         {
             Proveedores? proveedor = await _Context.Proveedores
@@ -25,14 +24,6 @@ namespace Farmaceutica.Infrastructure.Repositories
             proveedor.Activo = 0;
 
             return await _Context.SaveChangesAsync() > 0;
-        }
-
-        public async Task<List<string>> GetProveedoresAsync(string? nombre = null)
-        {
-            return await _Context.Proveedores
-                .Where(x => string.IsNullOrEmpty(nombre) || x.RazonSocial.Contains(nombre) && x.Activo == 1)
-                .Select(x => x.RazonSocial)
-                .ToListAsync();
         }
 
         public async Task<List<Proveedores>> GetProveedoresFilterAsync(Expression<Func<Proveedores, bool>> condicion)

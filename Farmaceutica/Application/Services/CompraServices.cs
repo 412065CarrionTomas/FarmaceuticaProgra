@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using Domain.Models;
+using Farmaceutica.Application.;
 using Farmaceutica.Application.DTOs.CompraDTOs;
 using Farmaceutica.Application.Interfaces;
+using Farmaceutica.Application.Validates;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using System.Linq.Expressions;
 
@@ -18,20 +20,34 @@ namespace Farmaceutica.Application.Services
             _Mapper = mapper;
         }
 
+        public async Task<List<CompraDto>?> GetComprasByFilters(DateTime? fechaInicio
+                                                        , DateTime? fechaFin, string? sucursal
+                                                        , string? proveedor)
+        {
+            fechaInicio ??= DateTime.MinValue;
+            fechaFin ??= DateTime.Now;
+
+            Expression<Func<Compras, bool>> condicion = x =>
+            x.FechaCompra.Value.Date >= fechaInicio &&
+            x.FechaCompra.Value.Date <= fechaFin &&
+            (string.IsNullOrEmpty(sucursal) || x.Sucursal.Descripcion.Contains(sucursal)) &&
+            (string.IsNullOrEmpty(proveedor) || x.Proveedor.RazonSocial.Contains(proveedor));
+
+            List<Compras> compraDom = await _CompraRepository.GetComprasAsync(condicion);
+            if (compraDom == null) { return null; }
+            List<CompraDto> compraDto = _Mapper.Map<List<CompraDto>>(compraDom);
+            return compraDto;
+        }
+
         public async Task<bool> DeleteCompraAsync(int id)
         {
             return await _CompraRepository.DeleteCompraAsync(id);
         }
 
-        public async Task<List<CompraDto>?> GetComprasAsync()
-        {
-            Expression<Func<Compras, bool>> condicion = x => x.Activo == 1 || x.Activo == null;
-            var compraDom = await _CompraRepository.GetComprasAsync(condicion);
-            return _Mapper.Map<List<CompraDto>>(compraDom) ?? new List<CompraDto>();
-        }
 
         public async Task<bool> InsertCompraAsync(CompraDto compras)
         {
+            CompraValidate.Validate(compras);
             if(compras.DetallesCompraDtoLts == null) 
                 new ArgumentNullException(); 
             var listDetails = _Mapper.Map<List<DetallesCompras>>(compras.DetallesCompraDtoLts);
@@ -40,6 +56,7 @@ namespace Farmaceutica.Application.Services
 
         public async Task<bool> UpdateComprasAsync(int id, CompraDto compra)
         {
+            CompraValidate.Validate(compras);
             if (compra.DetallesCompraDtoLts == null)
                 new ArgumentNullException();
             var detailLts = _Mapper.Map<List<DetallesCompras>>(compra.DetallesCompraDtoLts);
