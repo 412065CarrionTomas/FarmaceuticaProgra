@@ -6,7 +6,7 @@ namespace Farmaceutica.Application.DTOs.CompraDTOs
     {
         public DateTime? FechaCompra { get; set; }
 
-        public int? EmpleadoDni { get; set; }
+        public string? EmpleadoDni { get; set; }
 
         public string? Proveedor { get; set; }
 

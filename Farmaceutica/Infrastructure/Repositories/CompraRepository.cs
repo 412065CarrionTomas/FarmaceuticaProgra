@@ -37,6 +37,7 @@ namespace Farmaceutica.Infrastructure.Repositories
                 .Include(x => x.Empleado)
                 .Include(x => x.Sucursal)
                 .Include(x => x.Proveedor)
+                .Include(x => x.Repartidor)
                 .Where(condicion).ToListAsync();
         }
 

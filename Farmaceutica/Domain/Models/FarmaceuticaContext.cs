@@ -834,6 +834,7 @@ public partial class FarmaceuticaContext : DbContext
             entity.ToTable("SUCURSALES");
 
             entity.Property(e => e.SucursalId).HasColumnName("SucursalID");
+            entity.Property(e => e.Activo).HasColumnName("activo");
             entity.Property(e => e.Descripcion)
                 .HasMaxLength(250)
                 .IsUnicode(false);

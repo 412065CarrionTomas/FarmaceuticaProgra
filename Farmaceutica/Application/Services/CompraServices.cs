@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using Domain.Models;
-using Farmaceutica.Application.;
 using Farmaceutica.Application.DTOs.CompraDTOs;
 using Farmaceutica.Application.Interfaces;
 using Farmaceutica.Application.Validates;
@@ -31,7 +30,8 @@ namespace Farmaceutica.Application.Services
             x.FechaCompra.Value.Date >= fechaInicio &&
             x.FechaCompra.Value.Date <= fechaFin &&
             (string.IsNullOrEmpty(sucursal) || x.Sucursal.Descripcion.Contains(sucursal)) &&
-            (string.IsNullOrEmpty(proveedor) || x.Proveedor.RazonSocial.Contains(proveedor));
+            (string.IsNullOrEmpty(proveedor) || x.Proveedor.RazonSocial.Contains(proveedor)) &&
+            x.Activo == 1;
 
             List<Compras> compraDom = await _CompraRepository.GetComprasAsync(condicion);
             if (compraDom == null) { return null; }
@@ -56,7 +56,7 @@ namespace Farmaceutica.Application.Services
 
         public async Task<bool> UpdateComprasAsync(int id, CompraDto compra)
         {
-            CompraValidate.Validate(compras);
+            CompraValidate.Validate(compra);
             if (compra.DetallesCompraDtoLts == null)
                 new ArgumentNullException();
             var detailLts = _Mapper.Map<List<DetallesCompras>>(compra.DetallesCompraDtoLts);

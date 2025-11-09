@@ -13,6 +13,6 @@ namespace Domain.Models
 {
     public partial interface IFarmaceuticaContextProcedures
     {
-        Task<int> sp_TraerTablasAsync(int? empleado_dni, string proveedor, string repartidor, string sucursal, OutputParameter<int?> empleadoID, OutputParameter<int?> proveedorID, OutputParameter<int?> repartidorID, OutputParameter<int?> sucursalID, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
+        Task<int> sp_TraerTablasAsync(string empleado_dni, string proveedor, string repartidor, string sucursal, OutputParameter<int?> empleadoID, OutputParameter<int?> proveedorID, OutputParameter<int?> repartidorID, OutputParameter<int?> sucursalID, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
     }
 }

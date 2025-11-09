@@ -43,7 +43,7 @@ namespace Domain.Models
             _context = context;
         }
 
-        public virtual async Task<int> sp_TraerTablasAsync(int? empleado_dni, string proveedor, string repartidor, string sucursal, OutputParameter<int?> empleadoID, OutputParameter<int?> proveedorID, OutputParameter<int?> repartidorID, OutputParameter<int?> sucursalID, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default)
+        public virtual async Task<int> sp_TraerTablasAsync(string empleado_dni, string proveedor, string repartidor, string sucursal, OutputParameter<int?> empleadoID, OutputParameter<int?> proveedorID, OutputParameter<int?> repartidorID, OutputParameter<int?> sucursalID, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default)
         {
             var parameterempleadoID = new SqlParameter
             {
@@ -85,8 +85,9 @@ namespace Domain.Models
                 new SqlParameter
                 {
                     ParameterName = "empleado_dni",
+                    Size = 100,
                     Value = empleado_dni ?? Convert.DBNull,
-                    SqlDbType = System.Data.SqlDbType.Int,
+                    SqlDbType = System.Data.SqlDbType.VarChar,
                 },
                 new SqlParameter
                 {

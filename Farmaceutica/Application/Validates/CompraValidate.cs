@@ -1,5 +1,3 @@
-
-
 using Farmaceutica.Application.DTOs.CompraDTOs;
 using Microsoft.AspNetCore.Components.Web;
 
@@ -15,8 +13,9 @@ namespace Farmaceutica.Application.Validates
                 throw new ArgumentNullException("No puede ingresar nombre de Sucursal vacio.", nameof(compraDto.Sucursal));
             if (string.IsNullOrEmpty(compraDto.Proveedor))
                 throw new ArgumentNullException("No puede ingresar nombre de Proveedor vacio.", nameof(compraDto.Proveedor));
-            if (compraDto.EmpleadoDni >= 10000)
-                throw new ArgumentException("El dni debe contener al menos 4 digitos distintos de 0.", nameof(compraDto.EmpleadoDni));
+            if (compraDto.EmpleadoDni == null ||
+                compraDto.EmpleadoDni.Count(c => char.IsDigit(c) && c != '0') < 4)
+                throw new ArgumentException("El DNI debe contener al menos 4 dígitos distintos de 0.", nameof(compraDto.EmpleadoDni));
             if (compraDto.Activo != 0 || compraDto.Activo != 1)
                 throw new ArgumentOutOfRangeException("El campo activo debe ser 1 o 0.", nameof(compraDto.Activo));
             foreach (DetalleCompraDto detalleCompraDto in compraDto.DetallesCompraDtoLts)
