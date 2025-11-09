@@ -2,8 +2,8 @@
 /*
   Script: CREATE TABLE con FKs INLINE y GO.
   Ordenado para ejecución directa en SQL Server.
-  Sólo tablas y relaciones (PK + FK). No índices adicionales, no triggers, no vistas.
---*/
+--  Sólo tablas y relaciones (PK + FK). No índices adicionales, no triggers, no vistas.
+----*/
 
 --create database Farmaceutica
 --go
@@ -434,9 +434,6 @@ add activo int
 go
 
 
-
---VISTAS
-
 create view [dbo].[VwMedicamentoTop]
 as
 SELECT TOP (1) m.Nombre_Medicamento AS Nombre, m.Codigo_Barra_MedicamentoID AS CodigoDeBarra
@@ -468,9 +465,8 @@ go
 
 
 
-
-create procedure sp_TraerTablas
-    @empleado_dni int ,
+alter procedure sp_TraerTablas
+    @empleado_dni varchar(100) ,
     @proveedor varchar(100) ,
     @repartidor varchar(100) ,
     @sucursal varchar(100),

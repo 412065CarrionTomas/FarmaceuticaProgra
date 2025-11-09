@@ -265,21 +265,21 @@ INSERT INTO PLANES_OBRAS_SOCIALES (Descripcion, Obra_SocialID) VALUES ('Regional
 GO
 
 -- 15) PROVEEDORES (15)
-INSERT INTO PROVEEDORES (RazonSocial, CUIT, DireccionProveedor, TelefonoProveedor, EmailProveedor) VALUES ('Laboratorios Argentinos S.A.','30-12345678-1','Av. Siempre Viva 100','+54 11 4000-0001','ventas@labarg.com');
-INSERT INTO PROVEEDORES (RazonSocial, CUIT, DireccionProveedor, TelefonoProveedor, EmailProveedor) VALUES ('Distribuidora Farma SRL','30-87654321-2','Calle Falsa 200','+54 11 4000-0002','contacto@distfarma.com');
-INSERT INTO PROVEEDORES (RazonSocial, CUIT, DireccionProveedor, TelefonoProveedor, EmailProveedor) VALUES ('Insumos Médicos SA','30-11223344-3','Rivadavia 300','+54 11 4000-0003','info@insumosmed.com');
-INSERT INTO PROVEEDORES (RazonSocial, CUIT, DireccionProveedor, TelefonoProveedor, EmailProveedor) VALUES ('Cosméticos del Plata','30-55667788-4','Florida 400','+54 11 4000-0004','ventas@cosplat.com');
-INSERT INTO PROVEEDORES (RazonSocial, CUIT, DireccionProveedor, TelefonoProveedor, EmailProveedor) VALUES ('Vacunas Globales','30-99887766-5','Av. Norte 500','+54 11 4000-0005','vacunas@global.com');
-INSERT INTO PROVEEDORES (RazonSocial, CUIT, DireccionProveedor, TelefonoProveedor, EmailProveedor) VALUES ('Equipos Médicos SA','30-22334455-6','Industrial 600','+54 11 4000-0006','equipos@medicos.com');
-INSERT INTO PROVEEDORES (RazonSocial, CUIT, DireccionProveedor, TelefonoProveedor, EmailProveedor) VALUES ('Herbolario Natural','30-66778899-7','Río 700','+54 11 4000-0007','pedidos@herbal.com');
-INSERT INTO PROVEEDORES (RazonSocial, CUIT, DireccionProveedor, TelefonoProveedor, EmailProveedor) VALUES ('Suministros Quirúrgicos','30-33445566-8','Salud 800','+54 11 4000-0008','suministros@quirurg.com');
-INSERT INTO PROVEEDORES (RazonSocial, CUIT, DireccionProveedor, TelefonoProveedor, EmailProveedor) VALUES ('Distribuciones Norte','30-44556677-9','Norte 900','+54 11 4000-0009','norte@dist.com');
-INSERT INTO PROVEEDORES (RazonSocial, CUIT, DireccionProveedor, TelefonoProveedor, EmailProveedor) VALUES ('Farmacia Mayorista','30-55664433-0','Mercado 1000','+54 11 4000-0010','mayorista@farma.com');
-INSERT INTO PROVEEDORES (RazonSocial, CUIT, DireccionProveedor, TelefonoProveedor, EmailProveedor) VALUES ('Logística Pharma','30-66775544-1','Logística 1100','+54 11 4000-0011','logistica@pharma.com');
-INSERT INTO PROVEEDORES (RazonSocial, CUIT, DireccionProveedor, TelefonoProveedor, EmailProveedor) VALUES ('Laboratorio Central','30-77886655-2','Centro 1200','+54 11 4000-0012','central@lab.com');
-INSERT INTO PROVEEDORES (RazonSocial, CUIT, DireccionProveedor, TelefonoProveedor, EmailProveedor) VALUES ('Proveedora Sur','30-88997766-3','Sur 1300','+54 11 4000-0013','sur@provee.com');
-INSERT INTO PROVEEDORES (RazonSocial, CUIT, DireccionProveedor, TelefonoProveedor, EmailProveedor) VALUES ('Insumos Dentales','30-99008877-4','Odontología 1400','+54 11 4000-0014','dental@insumos.com');
-INSERT INTO PROVEEDORES (RazonSocial, CUIT, DireccionProveedor, TelefonoProveedor, EmailProveedor) VALUES ('Productos Hospitalarios','30-10101010-5','Hospital 1500','+54 11 4000-0015','hospital@prod.com');
+INSERT INTO PROVEEDORES (RazonSocial, CUIT, DireccionProveedor, TelefonoProveedor, EmailProveedor,activo) VALUES ('Laboratorios Argentinos S.A.','30-12345678-1','Av. Siempre Viva 100','+54 11 4000-0001','ventas@labarg.com',1);
+INSERT INTO PROVEEDORES (RazonSocial, CUIT, DireccionProveedor, TelefonoProveedor, EmailProveedor, activo) VALUES ('Distribuidora Farma SRL','30-87654321-2','Calle Falsa 200','+54 11 4000-0002','contacto@distfarma.com',1 );
+INSERT INTO PROVEEDORES (RazonSocial, CUIT, DireccionProveedor, TelefonoProveedor, EmailProveedor, activo) VALUES ('Insumos Médicos SA','30-11223344-3','Rivadavia 300','+54 11 4000-0003','info@insumosmed.com', 1);
+INSERT INTO PROVEEDORES (RazonSocial, CUIT, DireccionProveedor, TelefonoProveedor, EmailProveedor, activo) VALUES ('Cosméticos del Plata','30-55667788-4','Florida 400','+54 11 4000-0004','ventas@cosplat.com', 1);
+INSERT INTO PROVEEDORES (RazonSocial, CUIT, DireccionProveedor, TelefonoProveedor, EmailProveedor, activo) VALUES ('Vacunas Globales','30-99887766-5','Av. Norte 500','+54 11 4000-0005','vacunas@global.com', 1);
+INSERT INTO PROVEEDORES (RazonSocial, CUIT, DireccionProveedor, TelefonoProveedor, EmailProveedor, activo) VALUES ('Equipos Médicos SA','30-22334455-6','Industrial 600','+54 11 4000-0006','equipos@medicos.com',1 );
+INSERT INTO PROVEEDORES (RazonSocial, CUIT, DireccionProveedor, TelefonoProveedor, EmailProveedor, activo) VALUES ('Herbolario Natural','30-66778899-7','Río 700','+54 11 4000-0007','pedidos@herbal.com', 1);
+INSERT INTO PROVEEDORES (RazonSocial, CUIT, DireccionProveedor, TelefonoProveedor, EmailProveedor, activo) VALUES ('Suministros Quirúrgicos','30-33445566-8','Salud 800','+54 11 4000-0008','suministros@quirurg.com',0);
+INSERT INTO PROVEEDORES (RazonSocial, CUIT, DireccionProveedor, TelefonoProveedor, EmailProveedor, activo) VALUES ('Distribuciones Norte','30-44556677-9','Norte 900','+54 11 4000-0009','norte@dist.com',1 );
+INSERT INTO PROVEEDORES (RazonSocial, CUIT, DireccionProveedor, TelefonoProveedor, EmailProveedor, activo) VALUES ('Farmacia Mayorista','30-55664433-0','Mercado 1000','+54 11 4000-0010','mayorista@farma.com',1 );
+INSERT INTO PROVEEDORES (RazonSocial, CUIT, DireccionProveedor, TelefonoProveedor, EmailProveedor, activo) VALUES ('Logística Pharma','30-66775544-1','Logística 1100','+54 11 4000-0011','logistica@pharma.com',1 );
+INSERT INTO PROVEEDORES (RazonSocial, CUIT, DireccionProveedor, TelefonoProveedor, EmailProveedor, activo) VALUES ('Laboratorio Central','30-77886655-2','Centro 1200','+54 11 4000-0012','central@lab.com',1 );
+INSERT INTO PROVEEDORES (RazonSocial, CUIT, DireccionProveedor, TelefonoProveedor, EmailProveedor, activo) VALUES ('Proveedora Sur','30-88997766-3','Sur 1300','+54 11 4000-0013','sur@provee.com',0);
+INSERT INTO PROVEEDORES (RazonSocial, CUIT, DireccionProveedor, TelefonoProveedor, EmailProveedor, activo) VALUES ('Insumos Dentales','30-99008877-4','Odontología 1400','+54 11 4000-0014','dental@insumos.com',1);
+INSERT INTO PROVEEDORES (RazonSocial, CUIT, DireccionProveedor, TelefonoProveedor, EmailProveedor, activo) VALUES ('Productos Hospitalarios','30-10101010-5','Hospital 1500','+54 11 4000-0015','hospital@prod.com',1);
 
 GO
 
@@ -607,40 +607,40 @@ INSERT INTO DETALLES_FACTURAS (DescuentoID, ProductoID, MedicamentoID, Cantidad,
 GO
 
 -- 33) COMPRAS (15) -> EmpleadoID 1..15, ProveedorID 1..15, RepartidorID 1..15, SucursalID 1..15
-INSERT INTO COMPRAS (Fecha_Compra, EmpleadoID, ProveedorID, RepartidorID, SucursalID) VALUES ('2025-05-01 09:00:00',1,1,1,1);
-INSERT INTO COMPRAS (Fecha_Compra, EmpleadoID, ProveedorID, RepartidorID, SucursalID) VALUES ('2025-05-02 10:00:00',2,2,2,2);
-INSERT INTO COMPRAS (Fecha_Compra, EmpleadoID, ProveedorID, RepartidorID, SucursalID) VALUES ('2025-05-03 11:00:00',3,3,3,3);
-INSERT INTO COMPRAS (Fecha_Compra, EmpleadoID, ProveedorID, RepartidorID, SucursalID) VALUES ('2025-05-04 12:00:00',4,4,4,4);
-INSERT INTO COMPRAS (Fecha_Compra, EmpleadoID, ProveedorID, RepartidorID, SucursalID) VALUES ('2025-05-05 13:00:00',5,5,5,5);
-INSERT INTO COMPRAS (Fecha_Compra, EmpleadoID, ProveedorID, RepartidorID, SucursalID) VALUES ('2025-05-06 14:00:00',6,6,6,6);
-INSERT INTO COMPRAS (Fecha_Compra, EmpleadoID, ProveedorID, RepartidorID, SucursalID) VALUES ('2025-05-07 15:00:00',7,7,7,7);
-INSERT INTO COMPRAS (Fecha_Compra, EmpleadoID, ProveedorID, RepartidorID, SucursalID) VALUES ('2025-05-08 16:00:00',8,8,8,8);
-INSERT INTO COMPRAS (Fecha_Compra, EmpleadoID, ProveedorID, RepartidorID, SucursalID) VALUES ('2025-05-09 17:00:00',9,9,9,9);
-INSERT INTO COMPRAS (Fecha_Compra, EmpleadoID, ProveedorID, RepartidorID, SucursalID) VALUES ('2025-05-10 18:00:00',10,10,10,10);
-INSERT INTO COMPRAS (Fecha_Compra, EmpleadoID, ProveedorID, RepartidorID, SucursalID) VALUES ('2025-05-11 08:00:00',11,11,11,11);
-INSERT INTO COMPRAS (Fecha_Compra, EmpleadoID, ProveedorID, RepartidorID, SucursalID) VALUES ('2025-05-12 09:30:00',12,12,12,12);
-INSERT INTO COMPRAS (Fecha_Compra, EmpleadoID, ProveedorID, RepartidorID, SucursalID) VALUES ('2025-05-13 10:15:00',13,13,13,13);
-INSERT INTO COMPRAS (Fecha_Compra, EmpleadoID, ProveedorID, RepartidorID, SucursalID) VALUES ('2025-05-14 11:45:00',14,14,14,14);
-INSERT INTO COMPRAS (Fecha_Compra, EmpleadoID, ProveedorID, RepartidorID, SucursalID) VALUES ('2025-05-15 12:30:00',15,15,15,15);
+INSERT INTO COMPRAS (Fecha_Compra, EmpleadoID, ProveedorID, RepartidorID, SucursalID,activo) VALUES ('2025-05-01 09:00:00',1,1,1,1, 1);
+INSERT INTO COMPRAS (Fecha_Compra, EmpleadoID, ProveedorID, RepartidorID, SucursalID, activo) VALUES ('2025-05-02 10:00:00',2,2,2,2, 1);
+INSERT INTO COMPRAS (Fecha_Compra, EmpleadoID, ProveedorID, RepartidorID, SucursalID, activo) VALUES ('2025-05-03 11:00:00',3,3,3,3, 1);
+INSERT INTO COMPRAS (Fecha_Compra, EmpleadoID, ProveedorID, RepartidorID, SucursalID, activo) VALUES ('2025-05-04 12:00:00',4,4,4,4, 1);
+INSERT INTO COMPRAS (Fecha_Compra, EmpleadoID, ProveedorID, RepartidorID, SucursalID, activo) VALUES ('2025-05-05 13:00:00',5,5,5,5, 1);
+INSERT INTO COMPRAS (Fecha_Compra, EmpleadoID, ProveedorID, RepartidorID, SucursalID, activo) VALUES ('2025-05-06 14:00:00',6,6,6,6, 1);
+INSERT INTO COMPRAS (Fecha_Compra, EmpleadoID, ProveedorID, RepartidorID, SucursalID, activo) VALUES ('2025-05-07 15:00:00',7,7,7,7, 1);
+INSERT INTO COMPRAS (Fecha_Compra, EmpleadoID, ProveedorID, RepartidorID, SucursalID, activo) VALUES ('2025-05-08 16:00:00',8,8,8,8, 1);
+INSERT INTO COMPRAS (Fecha_Compra, EmpleadoID, ProveedorID, RepartidorID, SucursalID, activo) VALUES ('2025-05-09 17:00:00',9,9,9,9, 1);
+INSERT INTO COMPRAS (Fecha_Compra, EmpleadoID, ProveedorID, RepartidorID, SucursalID, activo) VALUES ('2025-05-10 18:00:00',10,10,10,10, 1);
+INSERT INTO COMPRAS (Fecha_Compra, EmpleadoID, ProveedorID, RepartidorID, SucursalID, activo) VALUES ('2025-05-11 08:00:00',11,11,11,11, 0);
+INSERT INTO COMPRAS (Fecha_Compra, EmpleadoID, ProveedorID, RepartidorID, SucursalID, activo) VALUES ('2025-05-12 09:30:00',12,12,12,12, 0);
+INSERT INTO COMPRAS (Fecha_Compra, EmpleadoID, ProveedorID, RepartidorID, SucursalID, activo) VALUES ('2025-05-13 10:15:00',13,13,13,13,1);
+INSERT INTO COMPRAS (Fecha_Compra, EmpleadoID, ProveedorID, RepartidorID, SucursalID, activo) VALUES ('2025-05-14 11:45:00',14,14,14,14,1);
+INSERT INTO COMPRAS (Fecha_Compra, EmpleadoID, ProveedorID, RepartidorID, SucursalID, activo) VALUES ('2025-05-15 12:30:00',15,15,15,15,1);
 
 GO
 
 -- 34) DETALLES_COMPRAS (15) -> CompraID 1..15, Lote_ProductoID 1..15, Lote_MedicamentoID 1..15
-INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID) VALUES (1,1,NULL,'P000000001',10,1);
-INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID) VALUES (2,2,'M000000002',NULL,50,2);
-INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID) VALUES (3,3,NULL,'P000000003',100,3);
-INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID) VALUES (4,4,'M000000004',NULL,30,4);
-INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID) VALUES (5,5,NULL,'P000000005',5,5);
-INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID) VALUES (6,6,'M000000006',NULL,20,6);
-INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID) VALUES (7,7,NULL,'P000000007',60,7);
-INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID) VALUES (8,8,'M000000008',NULL,12,8);
-INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID) VALUES (9,9,NULL,'P000000009',40,9);
-INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID) VALUES (10,10,'M000000010',NULL,200,10);
-INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID) VALUES (11,11,NULL,'P000000011',15,11);
-INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID) VALUES (12,12,'M000000012',NULL,80,12);
-INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID) VALUES (13,13,NULL,'P000000013',25,13);
-INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID) VALUES (14,14,'M000000014',NULL,35,14);
-INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID) VALUES (15,15,NULL,'P000000015',45,15);
+INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (1,1,NULL,'P000000001',10,1,1);
+INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (2,2,'M000000002',NULL,50,2,1);
+INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (3,3,NULL,'P000000003',100,3,1);
+INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (4,4,'M000000004',NULL,30,4,1);
+INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (5,5,NULL,'P000000005',5,5,1);
+INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (6,6,'M000000006',NULL,20,6,1);
+INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (7,7,NULL,'P000000007',60,7,1);
+INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (8,8,'M000000008',NULL,12,8,1);
+INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (9,9,NULL,'P000000009',40,9,1);
+INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (10,10,'M000000010',NULL,200,10,1);
+INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (11,11,NULL,'P000000011',15,11,0);
+INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID,activo) VALUES (12,12,'M000000012',NULL,80,12,1);
+INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (13,13,NULL,'P000000013',25,13,1);
+INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (14,14,'M000000014',NULL,35,14,1);
+INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID,activo) VALUES (15,15,NULL,'P000000015',45,15,1);
 
 GO
 
