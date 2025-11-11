@@ -27,7 +27,7 @@ namespace Farmaceutica.Infrastructure.Repositories
 
         public async Task<List<Compras>?> GetComprasAsync(Expression<Func<Compras, bool>> condicion)
         {
-            return await _Context.Compras
+            var compras = await _Context.Compras
                 .Include(x => x.DetallesCompras)
                     .ThenInclude(x => x.LoteMedicamento)
                     .ThenInclude(x => x.Medicamento)
@@ -38,7 +38,17 @@ namespace Farmaceutica.Infrastructure.Repositories
                 .Include(x => x.Sucursal)
                 .Include(x => x.Proveedor)
                 .Include(x => x.Repartidor)
-                .Where(condicion).ToListAsync();
+                .Where(condicion)
+                .ToListAsync();
+
+            foreach (var compra in compras)
+            {
+                compra.DetallesCompras = compra.DetallesCompras
+                    .Where(d => d.Activo == 1)
+                    .ToList();
+            }
+
+            return compras;
         }
 
         public async Task<bool> InsertCompraAsync(CompraDto compra, List<DetallesCompras> details)
@@ -59,15 +69,14 @@ namespace Farmaceutica.Infrastructure.Repositories
                 sucursalID
             );
 
-            // Validar que los valores no sean null
             if (empleadoID.Value == null)
-                throw new ArgumentException("EmpleadoID no encontrado");
+                throw new ArgumentException("Empleado no encontrado");
             if (proveedorID.Value == null)
-                throw new ArgumentException("ProveedorID no encontrado");
+                throw new ArgumentException("Proveedor no encontrado");
             if (repartidorID.Value == null)
-                throw new ArgumentException("RepartidorID no encontrado");
+                throw new ArgumentException("Repartidor no encontrado");
             if (sucursalID.Value == null)
-                throw new ArgumentException("SucursalID no encontrado");
+                throw new ArgumentException("Sucursal no encontrado");
 
             var maestro = new Compras()
             {
@@ -103,7 +112,6 @@ namespace Farmaceutica.Infrastructure.Repositories
                 sucursalID
             );
 
-            // Validar que los valores no sean null
             if (empleadoID.Value == null)
                 throw new ArgumentException("EmpleadoID no encontrado");
             if (proveedorID.Value == null)

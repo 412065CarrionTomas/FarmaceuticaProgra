@@ -626,21 +626,21 @@ INSERT INTO COMPRAS (Fecha_Compra, EmpleadoID, ProveedorID, RepartidorID, Sucurs
 GO
 
 -- 34) DETALLES_COMPRAS (15) -> CompraID 1..15, Lote_ProductoID 1..15, Lote_MedicamentoID 1..15
-INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (1,1,NULL,'P000000001',10,1,1);
-INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (2,2,'M000000002',NULL,50,2,1);
-INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (3,3,NULL,'P000000003',100,3,1);
-INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (4,4,'M000000004',NULL,30,4,1);
-INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (5,5,NULL,'P000000005',5,5,1);
-INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (6,6,'M000000006',NULL,20,6,1);
-INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (7,7,NULL,'P000000007',60,7,1);
-INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (8,8,'M000000008',NULL,12,8,1);
-INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (9,9,NULL,'P000000009',40,9,1);
-INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (10,10,'M000000010',NULL,200,10,1);
-INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (11,11,NULL,'P000000011',15,11,0);
-INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID,activo) VALUES (12,12,'M000000012',NULL,80,12,1);
-INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (13,13,NULL,'P000000013',25,13,1);
-INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (14,14,'M000000014',NULL,35,14,1);
-INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID,activo) VALUES (15,15,NULL,'P000000015',45,15,1);
+INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (1,1,NULL,'P000000001',10,null,1);
+INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (2,null,'M000000002',NULL,50,2,1);
+INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (3,3,NULL,'P000000003',100,null,1);
+INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (4,null,'M000000004',NULL,30,4,1);
+INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (5,5,NULL,'P000000005',5,null,1);
+INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (6,null,'M000000006',NULL,20,6,1);
+INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (7,7,NULL,'P000000007',60,null,1);
+INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (8,null,'M000000008',NULL,12,8,1);
+INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (9,9,NULL,'P000000009',40,null,1);
+INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (10,null,'M000000010',NULL,200,10,1);
+INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (11,11,NULL,'P000000011',15,null,0);
+INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID,activo) VALUES (12,null,'M000000012',NULL,80,12,1);
+INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (13,13,NULL,'P000000013',25,null,1);
+INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (14,null,'M000000014',NULL,35,14,1);
+INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID,activo) VALUES (15,15,NULL,'P000000015',45,null,1);
 
 GO
 

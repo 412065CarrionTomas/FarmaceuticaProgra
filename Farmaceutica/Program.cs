@@ -54,6 +54,10 @@ namespace Farmaceutica
             builder.Services.AddScoped<IProductoRepository, ProductoRepository>();
             builder.Services.AddScoped<ProductoServices>();
 
+            //DETALLE DE COMPRA
+            builder.Services.AddScoped<IDetalleCompraRepository, DetalleCompraRepository>();
+            builder.Services.AddScoped<DetalleCompraService>();
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

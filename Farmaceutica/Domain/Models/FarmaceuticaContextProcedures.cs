@@ -126,5 +126,89 @@ namespace Domain.Models
 
             return _;
         }
+
+        public virtual async Task<int> sp_TraerTablasDetalleAsync(string codigoBarraProducto, string codigoBarraMedicamento, int? loteMedicamento, int? loteProducto, OutputParameter<string> codigoBarraProductoReturn, OutputParameter<string> codigoBarraMedicamentoReturn, OutputParameter<int?> loteMedicamentoReturn, OutputParameter<int?> loteProductoReturn, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default)
+        {
+            var parametercodigoBarraProductoReturn = new SqlParameter
+            {
+                ParameterName = "codigoBarraProductoReturn",
+                Size = 100,
+                Direction = System.Data.ParameterDirection.InputOutput,
+                Value = codigoBarraProductoReturn?._value ?? Convert.DBNull,
+                SqlDbType = System.Data.SqlDbType.VarChar,
+            };
+            var parametercodigoBarraMedicamentoReturn = new SqlParameter
+            {
+                ParameterName = "codigoBarraMedicamentoReturn",
+                Size = 100,
+                Direction = System.Data.ParameterDirection.InputOutput,
+                Value = codigoBarraMedicamentoReturn?._value ?? Convert.DBNull,
+                SqlDbType = System.Data.SqlDbType.VarChar,
+            };
+            var parameterloteMedicamentoReturn = new SqlParameter
+            {
+                ParameterName = "loteMedicamentoReturn",
+                Direction = System.Data.ParameterDirection.InputOutput,
+                Value = loteMedicamentoReturn?._value ?? Convert.DBNull,
+                SqlDbType = System.Data.SqlDbType.Int,
+            };
+            var parameterloteProductoReturn = new SqlParameter
+            {
+                ParameterName = "loteProductoReturn",
+                Direction = System.Data.ParameterDirection.InputOutput,
+                Value = loteProductoReturn?._value ?? Convert.DBNull,
+                SqlDbType = System.Data.SqlDbType.Int,
+            };
+            var parameterreturnValue = new SqlParameter
+            {
+                ParameterName = "returnValue",
+                Direction = System.Data.ParameterDirection.Output,
+                SqlDbType = System.Data.SqlDbType.Int,
+            };
+
+            var sqlParameters = new []
+            {
+                new SqlParameter
+                {
+                    ParameterName = "codigoBarraProducto",
+                    Size = 100,
+                    Value = codigoBarraProducto ?? Convert.DBNull,
+                    SqlDbType = System.Data.SqlDbType.VarChar,
+                },
+                new SqlParameter
+                {
+                    ParameterName = "codigoBarraMedicamento",
+                    Size = 100,
+                    Value = codigoBarraMedicamento ?? Convert.DBNull,
+                    SqlDbType = System.Data.SqlDbType.VarChar,
+                },
+                new SqlParameter
+                {
+                    ParameterName = "loteMedicamento",
+                    Value = loteMedicamento ?? Convert.DBNull,
+                    SqlDbType = System.Data.SqlDbType.Int,
+                },
+                new SqlParameter
+                {
+                    ParameterName = "loteProducto",
+                    Value = loteProducto ?? Convert.DBNull,
+                    SqlDbType = System.Data.SqlDbType.Int,
+                },
+                parametercodigoBarraProductoReturn,
+                parametercodigoBarraMedicamentoReturn,
+                parameterloteMedicamentoReturn,
+                parameterloteProductoReturn,
+                parameterreturnValue,
+            };
+            var _ = await _context.Database.ExecuteSqlRawAsync("EXEC @returnValue = [dbo].[sp_TraerTablasDetalle] @codigoBarraProducto = @codigoBarraProducto, @codigoBarraMedicamento = @codigoBarraMedicamento, @loteMedicamento = @loteMedicamento, @loteProducto = @loteProducto, @codigoBarraProductoReturn = @codigoBarraProductoReturn OUTPUT, @codigoBarraMedicamentoReturn = @codigoBarraMedicamentoReturn OUTPUT, @loteMedicamentoReturn = @loteMedicamentoReturn OUTPUT, @loteProductoReturn = @loteProductoReturn OUTPUT", sqlParameters, cancellationToken);
+
+            codigoBarraProductoReturn?.SetValue(parametercodigoBarraProductoReturn.Value);
+            codigoBarraMedicamentoReturn?.SetValue(parametercodigoBarraMedicamentoReturn.Value);
+            loteMedicamentoReturn?.SetValue(parameterloteMedicamentoReturn.Value);
+            loteProductoReturn?.SetValue(parameterloteProductoReturn.Value);
+            returnValue?.SetValue(parameterreturnValue.Value);
+
+            return _;
+        }
     }
 }

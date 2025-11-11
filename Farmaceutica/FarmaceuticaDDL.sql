@@ -465,7 +465,7 @@ go
 
 
 
-alter procedure sp_TraerTablas
+create procedure sp_TraerTablas
     @empleado_dni varchar(100) ,
     @proveedor varchar(100) ,
     @repartidor varchar(100) ,
@@ -482,3 +482,20 @@ begin
     set @sucursalID  = (SELECT SucursalID FROM SUCURSALES WHERE Descripcion = @sucursal);
 end
 go
+
+create procedure sp_TraerTablasDetalle
+    @codigoBarraProducto varchar(100),
+    @codigoBarraMedicamento varchar(100),
+    @loteMedicamento int,
+    @loteProducto int,
+    @codigoBarraProductoReturn varchar(100) output,
+    @codigoBarraMedicamentoReturn varchar(100)output,
+    @loteMedicamentoReturn int output,
+    @loteProductoReturn int output
+as 
+begin
+    set @codigoBarraMedicamentoReturn = (SELECT Codigo_Barra_MedicamentoID FROM MEDICAMENTOS WHERE Codigo_Barra_MedicamentoID = @codigoBarraMedicamento)
+    set @codigoBarraProductoReturn = (SELECT Codigo_Barra_ProductoID FROM PRODUCTOS WHERE Codigo_Barra_ProductoID = @codigoBarraProducto)
+    set @loteProductoReturn = (SELECT Lote_ProductoID FROM LOTES_PRODUCTOS WHERE Lote_ProductoID = @loteProducto)
+    set @loteMedicamentoReturn = (SELECT Lote_MedicamentoID FROM LOTES_MEDICAMENTOS WHERE Lote_MedicamentoID = @loteMedicamento)
+end
