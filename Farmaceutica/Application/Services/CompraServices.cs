@@ -34,7 +34,7 @@ namespace Farmaceutica.Application.Services
             x.Activo == 1; 
 
 
-            List<Compras> compraDom = await _CompraRepository.GetComprasAsync(condicion);
+            List<Compras>? compraDom = await _CompraRepository.GetComprasAsync(condicion);
             if (compraDom == null) { return null; }
             List<CompraDto> compraDto = _Mapper.Map<List<CompraDto>>(compraDom);
             return compraDto;
@@ -52,6 +52,13 @@ namespace Farmaceutica.Application.Services
             if(compras.DetallesCompraDtoLts == null) 
                 new ArgumentNullException(); 
             var listDetails = _Mapper.Map<List<DetallesCompras>>(compras.DetallesCompraDtoLts);
+            
+            foreach(DetallesCompras d in listDetails)
+            {
+                UpsertDetalleCompraValidate.ReValidateDetail(d);
+                UpsertDetalleCompraValidate.ValidateLogic(d);
+            }
+            
             return await _CompraRepository.InsertCompraAsync(compras, listDetails);
         }
 
@@ -61,6 +68,11 @@ namespace Farmaceutica.Application.Services
             if (compra.DetallesCompraDtoLts == null)
                 new ArgumentNullException();
             var detailLts = _Mapper.Map<List<DetallesCompras>>(compra.DetallesCompraDtoLts);
+            foreach (DetallesCompras d in detailLts)
+            {
+                UpsertDetalleCompraValidate.ReValidateDetail(d);
+                UpsertDetalleCompraValidate.ValidateLogic(d);
+            }
             return await _CompraRepository.UpdateCompraAsync(id, compra, detailLts);
         }
 
