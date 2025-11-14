@@ -22,7 +22,7 @@ namespace Farmaceutica.Application.Services
 
         public async Task<List<ProveedoresDTOs>?> GetAllProveedoresAsync()
         {
-            List<Proveedores>? proveedoresDomLts = await _ProveedorRepository.GetProveedoresFilterAsync(x => x.Activo.Equals(1));
+            List<Proveedores>? proveedoresDomLts = await _ProveedorRepository.GetProveedoresFilterAsync(x => x.Activo.Equals(true));
             if(proveedoresDomLts == null) { return null; }
             return _Mapper.Map<List<ProveedoresDTOs>>(proveedoresDomLts);
         }

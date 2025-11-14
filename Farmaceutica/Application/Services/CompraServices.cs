@@ -30,7 +30,8 @@ namespace Farmaceutica.Application.Services
             x.FechaCompra.Value.Date >= fechaInicio &&
             x.FechaCompra.Value.Date <= fechaFin &&
             (string.IsNullOrEmpty(sucursal) || x.Sucursal.Descripcion.Contains(sucursal)) &&
-            (string.IsNullOrEmpty(proveedor) || x.Proveedor.RazonSocial.Contains(proveedor));
+            (string.IsNullOrEmpty(proveedor) || x.Proveedor.RazonSocial.Contains(proveedor)) &&
+            x.Activo == true;
 
 
             List<Compras>? compraDom = await _CompraRepository.GetComprasAsync(condicion);

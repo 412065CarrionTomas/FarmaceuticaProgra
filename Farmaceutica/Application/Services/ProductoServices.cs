@@ -29,7 +29,8 @@ namespace FarmaceuticaBD1.Application.Services
             Expression<Func<InventariosProductos, bool>> condicion = x =>
                 (string.IsNullOrWhiteSpace(nombre) || x.Producto.NombreProducto.Contains(nombre)) &&
                 (string.IsNullOrWhiteSpace(codigoBarra) || x.Producto.CodigoBarraProductoId == codigoBarra) &&
-                (string.IsNullOrEmpty(sucursal) || x.Sucursal.Descripcion.Contains(sucursal));
+                (string.IsNullOrEmpty(sucursal) || x.Sucursal.Descripcion.Contains(sucursal)) &&
+                x.Activo == true;
 
             var productosDom = await _ProductoRepository.GetAllByFiltersAsync(condicion) ?? new List<InventariosProductos>();
             var productosDto = _Mapper.Map<List<InventarioProductoDTO>>(productosDom);
