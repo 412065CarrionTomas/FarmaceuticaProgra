@@ -418,28 +418,38 @@ GO
 
 
 alter table COMPRAS
-add activo int 
+add activo bit 
 go
 
 alter table DETALLES_COMPRAS
-add activo int 
+add activo bit 
 go
 
 alter table PROVEEDORES
-add activo int
+add activo bit
 go
 
 alter table MEDICAMENTOS
-add activo int
+add activo bit
 go
 
 alter table PRODUCTOS
-add activo int
+add activo bit
 go
+
+alter table INVENTARIOS_MEDICAMENTOS
+add activo bit
+go
+
+alter table INVENTARIOS_PRODUCTOS
+add activo bit
+go
+
+
 
 create view [dbo].[VwMedicamentoTop]
 as
-SELECT TOP (1) m.Nombre_Medicamento AS Nombre, m.Codigo_Barra_MedicamentoID AS CodigoDeBarra
+SELECT TOP (3) m.Nombre_Medicamento AS Nombre, m.Codigo_Barra_MedicamentoID AS CodigoDeBarra
 , df.Precio AS PrecioVenta, s.Descripcion AS Sucursal
 , SUM(df.Cantidad) AS CantidadVendidaTotal
 FROM     dbo.DETALLES_FACTURAS AS df INNER JOIN
@@ -453,7 +463,7 @@ go
 
 create view [dbo].[VwProductoTop]
 as
-SELECT TOP (1) p.Nombre_Producto AS Nombre, p.Codigo_Barra_ProductoID AS CodigoDeBarra
+SELECT TOP (3) p.Nombre_Producto AS Nombre, p.Codigo_Barra_ProductoID AS CodigoDeBarra
 , df.Precio AS PrecioVenta, s.Descripcion AS Sucursal
 , SUM(df.Cantidad) AS CantidadVendidaTotal
 FROM     dbo.DETALLES_FACTURAS AS df INNER JOIN
@@ -503,4 +513,37 @@ begin
     set @loteProductoReturn = (SELECT Lote_ProductoID FROM LOTES_PRODUCTOS WHERE Lote_ProductoID = @loteProducto)
     set @loteMedicamentoReturn = (SELECT Lote_MedicamentoID FROM LOTES_MEDICAMENTOS WHERE Lote_MedicamentoID = @loteMedicamento)
 end
+go
 
+create procedure sp_ganancias_mensuales
+    @anio int
+as
+begin
+    select MONTH(f.Fecha_Facturacion) 'MES',
+            YEAR(f.Fecha_Facturacion) 'AÑO',
+            SUM(df.Precio*df.Cantidad) 'IMPORTE'
+    from DETALLES_FACTURAS df
+    JOIN FACTURAS f on f.FacturaID = df.FacturaID
+    WHERE YEAR(f.Fecha_Facturacion) = @anio
+    GROUP BY MONTH(f.Fecha_Facturacion), YEAR(f.Fecha_Facturacion)
+    ORDER BY MES desc
+end
+go
+
+create view [dbo].[VwVentasPorSucursal]
+as
+    SELECT s.Descripcion 'SUCURSAL',
+           count(f.FacturaID) 'CANTIDAD_VENTAS'
+        FROM FACTURAS f
+        JOIN SUCURSALES s on f.SucursalID = s.SucursalID
+        GROUP BY s.Descripcion
+go
+
+create view [dbo].[VwMPUsado]
+as
+    SELECT mp.Descripcion 'METODO_PAGO',
+                count(f.FacturaID) 'CANTIDAD'
+        FROM FACTURAS f
+        JOIN METODOS_PAGOS mp on f.Metodo_PagoID = mp.Metodo_PagoID
+        GROUP BY mp.Descripcion
+go

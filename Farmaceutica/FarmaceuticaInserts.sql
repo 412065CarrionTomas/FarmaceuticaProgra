@@ -625,60 +625,61 @@ INSERT INTO COMPRAS (Fecha_Compra, EmpleadoID, ProveedorID, RepartidorID, Sucurs
 
 GO
 
+
 -- 34) DETALLES_COMPRAS (15) -> CompraID 1..15, Lote_ProductoID 1..15, Lote_MedicamentoID 1..15
-INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (1,1,NULL,'P000000001',10,1,1);
-INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (2,2,'M000000002',NULL,50,2,1);
-INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (3,3,NULL,'P000000003',100,3,1);
-INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (4,4,'M000000004',NULL,30,4,1);
-INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (5,5,NULL,'P000000005',5,5,1);
-INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (6,6,'M000000006',NULL,20,6,1);
-INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (7,7,NULL,'P000000007',60,7,1);
-INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (8,8,'M000000008',NULL,12,8,1);
-INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (9,9,NULL,'P000000009',40,9,1);
-INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (10,10,'M000000010',NULL,200,10,1);
-INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (11,11,NULL,'P000000011',15,11,0);
-INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID,activo) VALUES (12,12,'M000000012',NULL,80,12,1);
-INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (13,13,NULL,'P000000013',25,13,1);
-INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (14,14,'M000000014',NULL,35,14,1);
-INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID,activo) VALUES (15,15,NULL,'P000000015',45,15,1);
+INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (1,1,NULL,'P000000001',10,NULL,1);
+INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (2,NULL,'M000000002',NULL,50,2,1);
+INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (3,3,NULL,'P000000003',100,NULL,1);
+INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (4,NULL,'M000000004',NULL,30,4,1);
+INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (5,5,NULL,'P000000005',5,NULL,1);
+INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (6,NULL,'M000000006',NULL,20,6,1);
+INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (7,7,NULL,'P000000007',60,NULL,1);
+INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (8,NULL,'M000000008',NULL,12,8,1);
+INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (9,9,NULL,'P000000009',40,NULL,1);
+INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (10,NULL,'M000000010',NULL,200,10,1);
+INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (11,11,NULL,'P000000011',15,NULL,0);
+INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID,activo) VALUES (12,NULL,'M000000012',NULL,80,12,1);
+INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (13,13,NULL,'P000000013',25,NULL,1);
+INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (14,NULL,'M000000014',NULL,35,14,1);
+INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID,activo) VALUES (15,15,NULL,'P000000015',45,NULL,1);
 
 GO
 
 -- 35) INVENTARIOS_PRODUCTOS (15) -> SucursalID 1..15, ProductoID 1..15
-INSERT INTO INVENTARIOS_PRODUCTOS (SucursalID, ProductoID, Stock_Minimo, Stock_Actual) VALUES (1,1,5,100);
-INSERT INTO INVENTARIOS_PRODUCTOS (SucursalID, ProductoID, Stock_Minimo, Stock_Actual) VALUES (2,2,10,500);
-INSERT INTO INVENTARIOS_PRODUCTOS (SucursalID, ProductoID, Stock_Minimo, Stock_Actual) VALUES (3,3,20,200);
-INSERT INTO INVENTARIOS_PRODUCTOS (SucursalID, ProductoID, Stock_Minimo, Stock_Actual) VALUES (4,4,15,300);
-INSERT INTO INVENTARIOS_PRODUCTOS (SucursalID, ProductoID, Stock_Minimo, Stock_Actual) VALUES (5,5,2,50);
-INSERT INTO INVENTARIOS_PRODUCTOS (SucursalID, ProductoID, Stock_Minimo, Stock_Actual) VALUES (6,6,8,150);
-INSERT INTO INVENTARIOS_PRODUCTOS (SucursalID, ProductoID, Stock_Minimo, Stock_Actual) VALUES (7,7,25,600);
-INSERT INTO INVENTARIOS_PRODUCTOS (SucursalID, ProductoID, Stock_Minimo, Stock_Actual) VALUES (8,8,7,80);
-INSERT INTO INVENTARIOS_PRODUCTOS (SucursalID, ProductoID, Stock_Minimo, Stock_Actual) VALUES (9,9,10,250);
-INSERT INTO INVENTARIOS_PRODUCTOS (SucursalID, ProductoID, Stock_Minimo, Stock_Actual) VALUES (10,10,5,120);
-INSERT INTO INVENTARIOS_PRODUCTOS (SucursalID, ProductoID, Stock_Minimo, Stock_Actual) VALUES (11,11,3,75);
-INSERT INTO INVENTARIOS_PRODUCTOS (SucursalID, ProductoID, Stock_Minimo, Stock_Actual) VALUES (12,12,30,400);
-INSERT INTO INVENTARIOS_PRODUCTOS (SucursalID, ProductoID, Stock_Minimo, Stock_Actual) VALUES (13,13,6,90);
-INSERT INTO INVENTARIOS_PRODUCTOS (SucursalID, ProductoID, Stock_Minimo, Stock_Actual) VALUES (14,14,12,220);
-INSERT INTO INVENTARIOS_PRODUCTOS (SucursalID, ProductoID, Stock_Minimo, Stock_Actual) VALUES (15,15,4,130);
+INSERT INTO INVENTARIOS_PRODUCTOS (SucursalID, ProductoID, Stock_Minimo, Stock_Actual,activo) VALUES (1,1,5,100,1);
+INSERT INTO INVENTARIOS_PRODUCTOS (SucursalID, ProductoID, Stock_Minimo, Stock_Actual,activo) VALUES (2,2,10,500,1);
+INSERT INTO INVENTARIOS_PRODUCTOS (SucursalID, ProductoID, Stock_Minimo, Stock_Actual,activo) VALUES (3,3,20,200,1);
+INSERT INTO INVENTARIOS_PRODUCTOS (SucursalID, ProductoID, Stock_Minimo, Stock_Actual,activo) VALUES (4,4,15,300,1);
+INSERT INTO INVENTARIOS_PRODUCTOS (SucursalID, ProductoID, Stock_Minimo, Stock_Actual,activo) VALUES (5,5,2,50,1);
+INSERT INTO INVENTARIOS_PRODUCTOS (SucursalID, ProductoID, Stock_Minimo, Stock_Actual,activo) VALUES (6,6,8,150,1);
+INSERT INTO INVENTARIOS_PRODUCTOS (SucursalID, ProductoID, Stock_Minimo, Stock_Actual,activo) VALUES (7,7,25,600,1);
+INSERT INTO INVENTARIOS_PRODUCTOS (SucursalID, ProductoID, Stock_Minimo, Stock_Actual,activo) VALUES (8,8,7,80,1);
+INSERT INTO INVENTARIOS_PRODUCTOS (SucursalID, ProductoID, Stock_Minimo, Stock_Actual,activo) VALUES (9,9,10,250,1);
+INSERT INTO INVENTARIOS_PRODUCTOS (SucursalID, ProductoID, Stock_Minimo, Stock_Actual,activo) VALUES (10,10,5,120,1);
+INSERT INTO INVENTARIOS_PRODUCTOS (SucursalID, ProductoID, Stock_Minimo, Stock_Actual,activo) VALUES (11,11,3,75,1);
+INSERT INTO INVENTARIOS_PRODUCTOS (SucursalID, ProductoID, Stock_Minimo, Stock_Actual,activo) VALUES (12,12,30,400,1);
+INSERT INTO INVENTARIOS_PRODUCTOS (SucursalID, ProductoID, Stock_Minimo, Stock_Actual,activo) VALUES (13,13,6,90,1);
+INSERT INTO INVENTARIOS_PRODUCTOS (SucursalID, ProductoID, Stock_Minimo, Stock_Actual,activo) VALUES (14,14,12,220,1);
+INSERT INTO INVENTARIOS_PRODUCTOS (SucursalID, ProductoID, Stock_Minimo, Stock_Actual,activo) VALUES (15,15,4,130,1);
 
 GO
 
 -- 36) INVENTARIOS_MEDICAMENTOS (15) -> SucursalID 1..15, MedicamentoID 1..15
-INSERT INTO INVENTARIOS_MEDICAMENTOS (SucursalID, MedicamentoID, Stock_Minimo, Stock_Actual) VALUES (1,1,10,200);
-INSERT INTO INVENTARIOS_MEDICAMENTOS (SucursalID, MedicamentoID, Stock_Minimo, Stock_Actual) VALUES (2,2,20,500);
-INSERT INTO INVENTARIOS_MEDICAMENTOS (SucursalID, MedicamentoID, Stock_Minimo, Stock_Actual) VALUES (3,3,15,300);
-INSERT INTO INVENTARIOS_MEDICAMENTOS (SucursalID, MedicamentoID, Stock_Minimo, Stock_Actual) VALUES (4,4,8,250);
-INSERT INTO INVENTARIOS_MEDICAMENTOS (SucursalID, MedicamentoID, Stock_Minimo, Stock_Actual) VALUES (5,5,6,180);
-INSERT INTO INVENTARIOS_MEDICAMENTOS (SucursalID, MedicamentoID, Stock_Minimo, Stock_Actual) VALUES (6,6,12,220);
-INSERT INTO INVENTARIOS_MEDICAMENTOS (SucursalID, MedicamentoID, Stock_Minimo, Stock_Actual) VALUES (7,7,5,150);
-INSERT INTO INVENTARIOS_MEDICAMENTOS (SucursalID, MedicamentoID, Stock_Minimo, Stock_Actual) VALUES (8,8,10,90);
-INSERT INTO INVENTARIOS_MEDICAMENTOS (SucursalID, MedicamentoID, Stock_Minimo, Stock_Actual) VALUES (9,9,7,130);
-INSERT INTO INVENTARIOS_MEDICAMENTOS (SucursalID, MedicamentoID, Stock_Minimo, Stock_Actual) VALUES (10,10,30,700);
-INSERT INTO INVENTARIOS_MEDICAMENTOS (SucursalID, MedicamentoID, Stock_Minimo, Stock_Actual) VALUES (11,11,4,95);
-INSERT INTO INVENTARIOS_MEDICAMENTOS (SucursalID, MedicamentoID, Stock_Minimo, Stock_Actual) VALUES (12,12,9,260);
-INSERT INTO INVENTARIOS_MEDICAMENTOS (SucursalID, MedicamentoID, Stock_Minimo, Stock_Actual) VALUES (13,13,2,110);
-INSERT INTO INVENTARIOS_MEDICAMENTOS (SucursalID, MedicamentoID, Stock_Minimo, Stock_Actual) VALUES (14,14,7,175);
-INSERT INTO INVENTARIOS_MEDICAMENTOS (SucursalID, MedicamentoID, Stock_Minimo, Stock_Actual) VALUES (15,15,5,85);
+INSERT INTO INVENTARIOS_MEDICAMENTOS (SucursalID, MedicamentoID, Stock_Minimo, Stock_Actual,activo) VALUES (1,1,10,200,1);
+INSERT INTO INVENTARIOS_MEDICAMENTOS (SucursalID, MedicamentoID, Stock_Minimo, Stock_Actual,activo) VALUES (2,2,20,500,1);
+INSERT INTO INVENTARIOS_MEDICAMENTOS (SucursalID, MedicamentoID, Stock_Minimo, Stock_Actual,activo) VALUES (3,3,15,300,1);
+INSERT INTO INVENTARIOS_MEDICAMENTOS (SucursalID, MedicamentoID, Stock_Minimo, Stock_Actual,activo) VALUES (4,4,8,250,1);
+INSERT INTO INVENTARIOS_MEDICAMENTOS (SucursalID, MedicamentoID, Stock_Minimo, Stock_Actual,activo) VALUES (5,5,6,180,1);
+INSERT INTO INVENTARIOS_MEDICAMENTOS (SucursalID, MedicamentoID, Stock_Minimo, Stock_Actual,activo) VALUES (6,6,12,220,1);
+INSERT INTO INVENTARIOS_MEDICAMENTOS (SucursalID, MedicamentoID, Stock_Minimo, Stock_Actual,activo) VALUES (7,7,5,150,1);
+INSERT INTO INVENTARIOS_MEDICAMENTOS (SucursalID, MedicamentoID, Stock_Minimo, Stock_Actual,activo) VALUES (8,8,10,90,1);
+INSERT INTO INVENTARIOS_MEDICAMENTOS (SucursalID, MedicamentoID, Stock_Minimo, Stock_Actual,activo) VALUES (9,9,7,130,1);
+INSERT INTO INVENTARIOS_MEDICAMENTOS (SucursalID, MedicamentoID, Stock_Minimo, Stock_Actual,activo) VALUES (10,10,30,700,1);
+INSERT INTO INVENTARIOS_MEDICAMENTOS (SucursalID, MedicamentoID, Stock_Minimo, Stock_Actual,activo) VALUES (11,11,4,95,1);
+INSERT INTO INVENTARIOS_MEDICAMENTOS (SucursalID, MedicamentoID, Stock_Minimo, Stock_Actual,activo) VALUES (12,12,9,260,1);
+INSERT INTO INVENTARIOS_MEDICAMENTOS (SucursalID, MedicamentoID, Stock_Minimo, Stock_Actual,activo) VALUES (13,13,2,110,1);
+INSERT INTO INVENTARIOS_MEDICAMENTOS (SucursalID, MedicamentoID, Stock_Minimo, Stock_Actual,activo) VALUES (14,14,7,175,1);
+INSERT INTO INVENTARIOS_MEDICAMENTOS (SucursalID, MedicamentoID, Stock_Minimo, Stock_Actual,activo) VALUES (15,15,5,85,1);
 
 GO
 
