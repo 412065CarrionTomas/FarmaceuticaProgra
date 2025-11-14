@@ -42,23 +42,23 @@ namespace FarmaceuticaBD1.Controllers
         }
 
         [HttpGet("obtener_ganancias_mensuales")]
-        public async Task<IActionResult> GetGanancias([FromQuery]int? anio)
+        public async Task<IActionResult> GetGanancias([FromQuery] int? anio)
         {
             List<sp_ganancias_mensualesResult> ganMensual = await _FacturaServices.GetGananciasMensualesAsync(anio);
             return Ok(ganMensual);
         }
 
         [HttpGet("obtener_ventas_por_sucursal")]
-        public async Task<IActionResult> GetVentaPorSucursal()
+        public async Task<IActionResult> GetVentaPorSucursal([FromQuery] int? anio = null)
         {
-            List<VwVentasPorSucursal> ventasPorSucursalLts = await _FacturaServices.GetVentasPorSucursalAsync();
+            List<sp_VentasPorSucursalResult> ventasPorSucursalLts = await _FacturaServices.GetVentasPorSucursalAsync(anio);
             if(ventasPorSucursalLts == null) { return NotFound("No hay ventas por sucursal registradas"); }
             return Ok(ventasPorSucursalLts);
         }
         [HttpGet("obtener_metodo_pago_utilizado")]
-        public async Task<IActionResult> GetMPUsado()
+        public async Task<IActionResult> GetMPUsado([FromQuery]int? anio)
         {
-            List<VwMpusado> mpLts = await _FacturaServices.GetMPUsadoAsync();
+            List<sp_MPUsadosResult> mpLts = await _FacturaServices.GetMPUsadoAsync(anio);
             if (mpLts == null) { return NotFound("No hay metodo de pago registrados"); }
             return Ok(mpLts);
         }

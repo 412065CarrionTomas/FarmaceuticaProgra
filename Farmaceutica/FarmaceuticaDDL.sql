@@ -530,20 +530,49 @@ begin
 end
 go
 
-create view [dbo].[VwVentasPorSucursal]
-as
-    SELECT s.Descripcion 'SUCURSAL',
-           count(f.FacturaID) 'CANTIDAD_VENTAS'
-        FROM FACTURAS f
-        JOIN SUCURSALES s on f.SucursalID = s.SucursalID
-        GROUP BY s.Descripcion
-go
 
-create view [dbo].[VwMPUsado]
-as
-    SELECT mp.Descripcion 'METODO_PAGO',
-                count(f.FacturaID) 'CANTIDAD'
-        FROM FACTURAS f
-        JOIN METODOS_PAGOS mp on f.Metodo_PagoID = mp.Metodo_PagoID
-        GROUP BY mp.Descripcion
-go
+
+CREATE PROCEDURE [dbo].[sp_VentasPorSucursal]
+    @anio INT
+AS
+BEGIN
+    ;WITH Totales AS (
+        SELECT COUNT(*) AS TotalFacturas
+        FROM FACTURAS
+        WHERE YEAR(Fecha_Facturacion) = @anio
+    )
+    SELECT 
+        s.Descripcion AS SUCURSAL,
+        COUNT(f.FacturaID) AS CantidadSucursal,
+        CAST(COUNT(f.FacturaID) * 100.0 / t.TotalFacturas AS DECIMAL(5,2)) AS Porcentaje
+    FROM FACTURAS f
+    JOIN SUCURSALES s ON f.SucursalID = s.SucursalID
+    CROSS JOIN Totales t
+    WHERE YEAR(f.Fecha_Facturacion) = @anio
+    GROUP BY s.Descripcion, t.TotalFacturas
+    ORDER BY Porcentaje DESC;
+END
+GO
+
+CREATE PROCEDURE [dbo].[sp_MPUsados]
+    @anio INT
+AS
+BEGIN
+    ;WITH Totales AS (
+        SELECT COUNT(*) AS TotalFacturas
+        FROM FACTURAS
+        WHERE YEAR(Fecha_Facturacion) = @anio
+    )
+    SELECT 
+        mp.Descripcion 'METODO_PAGO',
+        COUNT(f.FacturaID) AS CantidadMPUsado,
+        CAST(COUNT(f.FacturaID) * 100.0 / t.TotalFacturas AS DECIMAL(5,2)) AS Porcentaje
+    FROM FACTURAS f
+    JOIN METODOS_PAGOS mp ON f.Metodo_PagoID= mp.Metodo_PagoID
+    CROSS JOIN Totales t
+    WHERE YEAR(f.Fecha_Facturacion) = @anio
+    GROUP BY mp.Descripcion, t.TotalFacturas
+    ORDER BY Porcentaje DESC;
+END
+GO
+

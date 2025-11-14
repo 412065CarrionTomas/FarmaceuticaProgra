@@ -168,19 +168,15 @@
          "ObjectType": 3
       },
       {
-         "Name": "[dbo].[VwMPUsado]",
-         "ObjectType": 3
-      },
-      {
          "Name": "[dbo].[VwProductoTop]",
          "ObjectType": 3
       },
       {
-         "Name": "[dbo].[VwVentasPorSucursal]",
-         "ObjectType": 3
+         "Name": "[dbo].[sp_ganancias_mensuales]",
+         "ObjectType": 1
       },
       {
-         "Name": "[dbo].[sp_ganancias_mensuales]",
+         "Name": "[dbo].[sp_MPUsados]",
          "ObjectType": 1
       },
       {
@@ -189,6 +185,10 @@
       },
       {
          "Name": "[dbo].[sp_TraerTablasDetalle]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[sp_VentasPorSucursal]",
          "ObjectType": 1
       }
    ],

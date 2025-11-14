@@ -69,6 +69,32 @@ namespace Domain.Models
             return _;
         }
 
+        public virtual async Task<List<sp_MPUsadosResult>> sp_MPUsadosAsync(int? anio, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default)
+        {
+            var parameterreturnValue = new SqlParameter
+            {
+                ParameterName = "returnValue",
+                Direction = System.Data.ParameterDirection.Output,
+                SqlDbType = System.Data.SqlDbType.Int,
+            };
+
+            var sqlParameters = new []
+            {
+                new SqlParameter
+                {
+                    ParameterName = "anio",
+                    Value = anio ?? Convert.DBNull,
+                    SqlDbType = System.Data.SqlDbType.Int,
+                },
+                parameterreturnValue,
+            };
+            var _ = await _context.SqlQueryAsync<sp_MPUsadosResult>("EXEC @returnValue = [dbo].[sp_MPUsados] @anio = @anio", sqlParameters, cancellationToken);
+
+            returnValue?.SetValue(parameterreturnValue.Value);
+
+            return _;
+        }
+
         public virtual async Task<int> sp_TraerTablasAsync(string empleado_dni, string proveedor, string repartidor, string sucursal, OutputParameter<int?> empleadoID, OutputParameter<int?> proveedorID, OutputParameter<int?> repartidorID, OutputParameter<int?> sucursalID, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default)
         {
             var parameterempleadoID = new SqlParameter
@@ -232,6 +258,32 @@ namespace Domain.Models
             codigoBarraMedicamentoReturn?.SetValue(parametercodigoBarraMedicamentoReturn.Value);
             loteMedicamentoReturn?.SetValue(parameterloteMedicamentoReturn.Value);
             loteProductoReturn?.SetValue(parameterloteProductoReturn.Value);
+            returnValue?.SetValue(parameterreturnValue.Value);
+
+            return _;
+        }
+
+        public virtual async Task<List<sp_VentasPorSucursalResult>> sp_VentasPorSucursalAsync(int? anio, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default)
+        {
+            var parameterreturnValue = new SqlParameter
+            {
+                ParameterName = "returnValue",
+                Direction = System.Data.ParameterDirection.Output,
+                SqlDbType = System.Data.SqlDbType.Int,
+            };
+
+            var sqlParameters = new []
+            {
+                new SqlParameter
+                {
+                    ParameterName = "anio",
+                    Value = anio ?? Convert.DBNull,
+                    SqlDbType = System.Data.SqlDbType.Int,
+                },
+                parameterreturnValue,
+            };
+            var _ = await _context.SqlQueryAsync<sp_VentasPorSucursalResult>("EXEC @returnValue = [dbo].[sp_VentasPorSucursal] @anio = @anio", sqlParameters, cancellationToken);
+
             returnValue?.SetValue(parameterreturnValue.Value);
 
             return _;

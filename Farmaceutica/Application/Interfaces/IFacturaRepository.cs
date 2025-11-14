@@ -14,7 +14,7 @@ namespace FarmaceuticaBD1.Application.Interfaces
         Task<List<VwProductoTop>> GetProductoTopAsync();
         Task<List<VwMedicamentoTop>> GetMedicamentoTopAsync();
         Task<List<sp_ganancias_mensualesResult>> GetGananciasMensualesAsync(int? anio);
-        Task<List<VwMpusado>> GetMPUsadosAsync();
-        Task<List<VwVentasPorSucursal>> GetVentasPorSucursalAsync();
+        Task<List<sp_MPUsadosResult>> GetMPUsadosAsync(int? anio);
+        Task<List<sp_VentasPorSucursalResult>> GetVentasPorSucursalAsync(int? anio);
     }
 }

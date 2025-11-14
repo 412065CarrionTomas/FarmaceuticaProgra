@@ -30,13 +30,12 @@ namespace FarmaceuticaBD1.Infrastructure.Repositories
         public async Task<List<VwMedicamentoTop>> GetMedicamentoTopAsync() 
             => await _Context.VwMedicamentoTop.ToListAsync();
 
-        public async Task<List<VwMpusado>> GetMPUsadosAsync()
-            => await _Context.VwMpusado.ToListAsync();
-
+        public async Task<List<sp_MPUsadosResult>> GetMPUsadosAsync(int? anio)
+            => await _Context.Procedures.sp_MPUsadosAsync(anio);
+        public async Task<List<sp_VentasPorSucursalResult>> GetVentasPorSucursalAsync(int? anio)
+            => await _Context.Procedures.sp_VentasPorSucursalAsync(anio);
         public async Task<List<VwProductoTop>> GetProductoTopAsync() 
             => await _Context.VwProductoTop.ToListAsync();
 
-        public async Task<List<VwVentasPorSucursal>> GetVentasPorSucursalAsync()
-            => await _Context.VwVentasPorSucursal.ToListAsync();
     }
 }

@@ -4,6 +4,7 @@ using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlTypes;
+using System.Diagnostics.Tracing;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -44,11 +45,13 @@ namespace FarmaceuticaBD1.Application.Services
             return await _FacturaRepository.GetGananciasMensualesAsync(anio);
         }
 
-        public async Task<List<VwVentasPorSucursal>> GetVentasPorSucursalAsync()
-            => await _FacturaRepository.GetVentasPorSucursalAsync();
+        public async Task<List<sp_VentasPorSucursalResult>> GetVentasPorSucursalAsync(int? anio)
+            => (anio == null) ? await _FacturaRepository.GetVentasPorSucursalAsync(DateAndTime.Now.Year) :
+                                await _FacturaRepository.GetVentasPorSucursalAsync(anio);
 
-        public async Task<List<VwMpusado>> GetMPUsadoAsync()
-            => await _FacturaRepository.GetMPUsadosAsync();
+        public async Task<List<sp_MPUsadosResult>> GetMPUsadoAsync(int? anio)
+            => (anio == null) ? await _FacturaRepository.GetMPUsadosAsync(DateAndTime.Now.Year) :
+                                await _FacturaRepository.GetMPUsadosAsync(anio);
 
         public async Task<List<VwProductoTop>> GetProductoTop() => await _FacturaRepository.GetProductoTopAsync();
         public async Task<List<VwMedicamentoTop>> GetMedicamentoTop() => await _FacturaRepository.GetMedicamentoTopAsync();

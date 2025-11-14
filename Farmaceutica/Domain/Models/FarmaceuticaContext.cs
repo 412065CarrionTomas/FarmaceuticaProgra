@@ -89,11 +89,7 @@ public partial class FarmaceuticaContext : DbContext
 
     public virtual DbSet<VwMedicamentoTop> VwMedicamentoTop { get; set; }
 
-    public virtual DbSet<VwMpusado> VwMpusado { get; set; }
-
     public virtual DbSet<VwProductoTop> VwProductoTop { get; set; }
-
-    public virtual DbSet<VwVentasPorSucursal> VwVentasPorSucursal { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -933,19 +929,6 @@ public partial class FarmaceuticaContext : DbContext
                 .IsUnicode(false);
         });
 
-        modelBuilder.Entity<VwMpusado>(entity =>
-        {
-            entity
-                .HasNoKey()
-                .ToView("VwMPUsado");
-
-            entity.Property(e => e.Cantidad).HasColumnName("CANTIDAD");
-            entity.Property(e => e.MetodoPago)
-                .HasMaxLength(200)
-                .IsUnicode(false)
-                .HasColumnName("METODO_PAGO");
-        });
-
         modelBuilder.Entity<VwProductoTop>(entity =>
         {
             entity
@@ -962,19 +945,6 @@ public partial class FarmaceuticaContext : DbContext
             entity.Property(e => e.Sucursal)
                 .HasMaxLength(250)
                 .IsUnicode(false);
-        });
-
-        modelBuilder.Entity<VwVentasPorSucursal>(entity =>
-        {
-            entity
-                .HasNoKey()
-                .ToView("VwVentasPorSucursal");
-
-            entity.Property(e => e.CantidadVentas).HasColumnName("CANTIDAD_VENTAS");
-            entity.Property(e => e.Sucursal)
-                .HasMaxLength(250)
-                .IsUnicode(false)
-                .HasColumnName("SUCURSAL");
         });
 
         OnModelCreatingPartial(modelBuilder);
