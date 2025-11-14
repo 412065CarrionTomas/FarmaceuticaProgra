@@ -1,4 +1,3 @@
-
 using AutoMapper;
 using Domain.Models;
 using Farmaceutica.Application.AutoMapper;
@@ -9,6 +8,7 @@ using FarmaceuticaBD1.Application.Interfaces;
 using FarmaceuticaBD1.Application.Services;
 using FarmaceuticaBD1.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
+using System.Text.Json.Serialization; // Configuración System.Text.Json
 
 namespace Farmaceutica
 {
@@ -18,49 +18,67 @@ namespace Farmaceutica
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
+            builder.Services
+                .AddControllers()
+                .AddJsonOptions(opts =>
+                {
+                    opts.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
+                    opts.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+                });
 
-            builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+            // Swagger/OpenAPI
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-            //CONTEXT
-            builder.Services.AddDbContext<FarmaceuticaContext>(options => options.UseSqlServer(
-                builder.Configuration.GetConnectionString("DefaultConnection")));
-            //AUTOMAPPER
+
+            // CONTEXT
+            builder.Services.AddDbContext<FarmaceuticaContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+            // AUTOMAPPER
             builder.Services.AddAutoMapper(typeof(AutoMapping));
 
-            //PROVEEDORES
+            // CORS
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("DefaultCors", policy =>
+                {
+                    policy
+                        .AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader();
+                });
+            });
+
+            // PROVEEDORES
             builder.Services.AddScoped<IProveedorRepository, ProveedorRepository>();
             builder.Services.AddScoped<ProveedorServices>();
 
-            //SUCURSALES
+            // SUCURSALES
             builder.Services.AddScoped<ISucursalRepository, SucursalRepository>();
             builder.Services.AddScoped<SucursalServices>();
 
-            //COMPRAS
+            // COMPRAS
             builder.Services.AddScoped<ICompraRepository, CompraRepository>();
             builder.Services.AddScoped<CompraServices>();
 
-            //FACTURAS
+            // FACTURAS
             builder.Services.AddScoped<IFacturaRepository, FacturaRepository>();
             builder.Services.AddScoped<FacturaServices>();
 
-            //MEDICAMENTOS
+            // MEDICAMENTOS
             builder.Services.AddScoped<IMedicamentoRepository, MedicamentoRepository>();
             builder.Services.AddScoped<MedicamentoServices>();
 
-            //PRODUCTOS
+            // PRODUCTOS
             builder.Services.AddScoped<IProductoRepository, ProductoRepository>();
             builder.Services.AddScoped<ProductoServices>();
 
-            //DETALLE DE COMPRA
+            // DETALLE DE COMPRA
             builder.Services.AddScoped<IDetalleCompraRepository, DetalleCompraRepository>();
             builder.Services.AddScoped<DetalleCompraService>();
 
             var app = builder.Build();
 
-            // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
@@ -69,8 +87,9 @@ namespace Farmaceutica
 
             app.UseHttpsRedirection();
 
-            app.UseAuthorization();
+            app.UseCors("DefaultCors");
 
+            app.UseAuthorization();
 
             app.MapControllers();
 
