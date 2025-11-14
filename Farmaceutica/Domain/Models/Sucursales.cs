@@ -15,8 +15,6 @@ public partial class Sucursales
 
     public int? LocalidadId { get; set; }
 
-    public int? Activo { get; set; }
-
     public virtual ICollection<Compras> Compras { get; set; } = new List<Compras>();
 
     public virtual ICollection<EmpleadosSucursales> EmpleadosSucursales { get; set; } = new List<EmpleadosSucursales>();

@@ -25,6 +25,8 @@ public partial class Medicamentos
 
     public int? RestriccionId { get; set; }
 
+    public bool? Activo { get; set; }
+
     public virtual ClasificacionesSuministros ClasificacionSuministro { get; set; }
 
     public virtual ICollection<DetallesFacturas> DetallesFacturas { get; set; } = new List<DetallesFacturas>();

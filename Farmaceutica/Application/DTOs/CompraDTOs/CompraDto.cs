@@ -15,6 +15,6 @@ namespace Farmaceutica.Application.DTOs.CompraDTOs
         public string? Sucursal { get; set; }
         public ICollection<DetalleCompraDto> DetallesCompraDtoLts { get; set; } = new List<DetalleCompraDto>();
 
-        public int Activo { get; set; }
+        public bool Activo { get; set; }
     }
 }

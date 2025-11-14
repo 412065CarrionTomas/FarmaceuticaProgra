@@ -1,7 +1,9 @@
 ﻿using Domain.Models;
 using FarmaceuticaBD1.Application.Interfaces;
+using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -32,7 +34,23 @@ namespace FarmaceuticaBD1.Application.Services
 
             return result;
         }
-        public async Task<VwProductoTop> GetProductoTop() => await _FacturaRepository.GetProductoTopAsync();
-        public async Task<VwMedicamentoTop> GetMedicamentoTop() => await _FacturaRepository.GetMedicamentoTopAsync();
+
+        public async Task<List<sp_ganancias_mensualesResult>> GetGananciasMensualesAsync(int? anio)
+        {
+            if(anio == null)
+            {
+                anio = DateAndTime.Now.Year;
+            }
+            return await _FacturaRepository.GetGananciasMensualesAsync(anio);
+        }
+
+        public async Task<List<VwVentasPorSucursal>> GetVentasPorSucursalAsync()
+            => await _FacturaRepository.GetVentasPorSucursalAsync();
+
+        public async Task<List<VwMpusado>> GetMPUsadoAsync()
+            => await _FacturaRepository.GetMPUsadosAsync();
+
+        public async Task<List<VwProductoTop>> GetProductoTop() => await _FacturaRepository.GetProductoTopAsync();
+        public async Task<List<VwMedicamentoTop>> GetMedicamentoTop() => await _FacturaRepository.GetMedicamentoTopAsync();
     }
 }

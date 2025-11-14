@@ -43,6 +43,32 @@ namespace Domain.Models
             _context = context;
         }
 
+        public virtual async Task<List<sp_ganancias_mensualesResult>> sp_ganancias_mensualesAsync(int? anio, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default)
+        {
+            var parameterreturnValue = new SqlParameter
+            {
+                ParameterName = "returnValue",
+                Direction = System.Data.ParameterDirection.Output,
+                SqlDbType = System.Data.SqlDbType.Int,
+            };
+
+            var sqlParameters = new []
+            {
+                new SqlParameter
+                {
+                    ParameterName = "anio",
+                    Value = anio ?? Convert.DBNull,
+                    SqlDbType = System.Data.SqlDbType.Int,
+                },
+                parameterreturnValue,
+            };
+            var _ = await _context.SqlQueryAsync<sp_ganancias_mensualesResult>("EXEC @returnValue = [dbo].[sp_ganancias_mensuales] @anio = @anio", sqlParameters, cancellationToken);
+
+            returnValue?.SetValue(parameterreturnValue.Value);
+
+            return _;
+        }
+
         public virtual async Task<int> sp_TraerTablasAsync(string empleado_dni, string proveedor, string repartidor, string sucursal, OutputParameter<int?> empleadoID, OutputParameter<int?> proveedorID, OutputParameter<int?> repartidorID, OutputParameter<int?> sucursalID, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default)
         {
             var parameterempleadoID = new SqlParameter

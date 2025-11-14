@@ -17,7 +17,7 @@ namespace Farmaceutica.Controllers
         }
 
 
-        [HttpPost]
+        [HttpPost("insertar_detalle_compra")]
         public async Task<IActionResult> Post([FromQuery] int idCompra, [FromBody] DetalleCompraDto value)
         {
             if (idCompra <= 0) return BadRequest("El idCompra debe ser mayor a 0.");
@@ -27,7 +27,7 @@ namespace Farmaceutica.Controllers
         }
 
 
-        [HttpPut("{id:int}")]
+        [HttpPut("actualizar_detalle_compra")]
         public async Task<IActionResult> Put(int id, [FromBody] DetalleCompraDto value)
         {
             if (id <= 0) return BadRequest("El id debe ser mayor a 0.");
@@ -37,7 +37,7 @@ namespace Farmaceutica.Controllers
         }
 
 
-        [HttpDelete("{id:int}")]
+        [HttpDelete("borrar_detalle_compra")]
         public async Task<IActionResult> Delete(int id)
         {
             if (id <= 0) return BadRequest("El id debe ser mayor a 0.");

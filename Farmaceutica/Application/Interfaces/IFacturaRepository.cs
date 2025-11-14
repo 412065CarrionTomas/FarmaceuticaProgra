@@ -11,7 +11,10 @@ namespace FarmaceuticaBD1.Application.Interfaces
     public interface IFacturaRepository
     {
         Task<List<Facturas>> GetGananciasFacturasAsync(Expression<Func<Facturas, bool>> condicion);
-        Task<VwProductoTop> GetProductoTopAsync();
-        Task<VwMedicamentoTop> GetMedicamentoTopAsync();
+        Task<List<VwProductoTop>> GetProductoTopAsync();
+        Task<List<VwMedicamentoTop>> GetMedicamentoTopAsync();
+        Task<List<sp_ganancias_mensualesResult>> GetGananciasMensualesAsync(int? anio);
+        Task<List<VwMpusado>> GetMPUsadosAsync();
+        Task<List<VwVentasPorSucursal>> GetVentasPorSucursalAsync();
     }
 }

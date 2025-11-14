@@ -14,6 +14,6 @@ namespace Farmaceutica.Application.DTOs
 
         public string? EmailProveedor { get; set; }
 
-        public int? Activo { get; set; }
+        public bool Activo { get; set; }
     }
 }

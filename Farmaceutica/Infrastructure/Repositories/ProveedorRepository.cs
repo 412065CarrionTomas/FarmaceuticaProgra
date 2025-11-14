@@ -21,7 +21,7 @@ namespace Farmaceutica.Infrastructure.Repositories
             Proveedores? proveedor = await _Context.Proveedores
                                     .FirstAsync(x => x.Cuit.Equals(cuit));
             if (proveedor == null) { throw new InvalidOperationException(); }
-            proveedor.Activo = 0;
+            proveedor.Activo = false;
 
             return await _Context.SaveChangesAsync() > 0;
         }

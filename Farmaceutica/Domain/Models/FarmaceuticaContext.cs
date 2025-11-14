@@ -89,7 +89,11 @@ public partial class FarmaceuticaContext : DbContext
 
     public virtual DbSet<VwMedicamentoTop> VwMedicamentoTop { get; set; }
 
+    public virtual DbSet<VwMpusado> VwMpusado { get; set; }
+
     public virtual DbSet<VwProductoTop> VwProductoTop { get; set; }
+
+    public virtual DbSet<VwVentasPorSucursal> VwVentasPorSucursal { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -501,6 +505,7 @@ public partial class FarmaceuticaContext : DbContext
             entity.ToTable("INVENTARIOS_MEDICAMENTOS");
 
             entity.Property(e => e.InventarioMedicamentoId).HasColumnName("Inventario_MedicamentoID");
+            entity.Property(e => e.Activo).HasColumnName("activo");
             entity.Property(e => e.MedicamentoId).HasColumnName("MedicamentoID");
             entity.Property(e => e.StockActual).HasColumnName("Stock_Actual");
             entity.Property(e => e.StockMinimo).HasColumnName("Stock_Minimo");
@@ -520,6 +525,7 @@ public partial class FarmaceuticaContext : DbContext
             entity.ToTable("INVENTARIOS_PRODUCTOS");
 
             entity.Property(e => e.InventariosProductosId).HasColumnName("Inventarios_ProductosID");
+            entity.Property(e => e.Activo).HasColumnName("activo");
             entity.Property(e => e.ProductoId).HasColumnName("ProductoID");
             entity.Property(e => e.StockActual).HasColumnName("Stock_Actual");
             entity.Property(e => e.StockMinimo).HasColumnName("Stock_Minimo");
@@ -598,6 +604,7 @@ public partial class FarmaceuticaContext : DbContext
             entity.ToTable("MEDICAMENTOS");
 
             entity.Property(e => e.MedicamentoId).HasColumnName("MedicamentoID");
+            entity.Property(e => e.Activo).HasColumnName("activo");
             entity.Property(e => e.ClasificacionSuministroId).HasColumnName("Clasificacion_SuministroID");
             entity.Property(e => e.CodigoBarraMedicamentoId)
                 .HasMaxLength(150)
@@ -697,6 +704,7 @@ public partial class FarmaceuticaContext : DbContext
             entity.ToTable("PRODUCTOS");
 
             entity.Property(e => e.ProductoId).HasColumnName("ProductoID");
+            entity.Property(e => e.Activo).HasColumnName("activo");
             entity.Property(e => e.ClasificacionSuministroId).HasColumnName("Clasificacion_SuministroID");
             entity.Property(e => e.CodigoBarraProductoId)
                 .HasMaxLength(150)
@@ -834,7 +842,6 @@ public partial class FarmaceuticaContext : DbContext
             entity.ToTable("SUCURSALES");
 
             entity.Property(e => e.SucursalId).HasColumnName("SucursalID");
-            entity.Property(e => e.Activo).HasColumnName("activo");
             entity.Property(e => e.Descripcion)
                 .HasMaxLength(250)
                 .IsUnicode(false);
@@ -926,6 +933,19 @@ public partial class FarmaceuticaContext : DbContext
                 .IsUnicode(false);
         });
 
+        modelBuilder.Entity<VwMpusado>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToView("VwMPUsado");
+
+            entity.Property(e => e.Cantidad).HasColumnName("CANTIDAD");
+            entity.Property(e => e.MetodoPago)
+                .HasMaxLength(200)
+                .IsUnicode(false)
+                .HasColumnName("METODO_PAGO");
+        });
+
         modelBuilder.Entity<VwProductoTop>(entity =>
         {
             entity
@@ -942,6 +962,19 @@ public partial class FarmaceuticaContext : DbContext
             entity.Property(e => e.Sucursal)
                 .HasMaxLength(250)
                 .IsUnicode(false);
+        });
+
+        modelBuilder.Entity<VwVentasPorSucursal>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToView("VwVentasPorSucursal");
+
+            entity.Property(e => e.CantidadVentas).HasColumnName("CANTIDAD_VENTAS");
+            entity.Property(e => e.Sucursal)
+                .HasMaxLength(250)
+                .IsUnicode(false)
+                .HasColumnName("SUCURSAL");
         });
 
         OnModelCreatingPartial(modelBuilder);

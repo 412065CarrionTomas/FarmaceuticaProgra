@@ -18,7 +18,7 @@ namespace FarmaceuticaBD1.Controllers
         }
 
         // GET: api/<FacturaController>
-        [HttpGet("ganancia")]
+        [HttpGet("obtener_ganancia")]
         public async Task<IActionResult> GetGanancia([FromQuery]int?dia=null
                                                 , [FromQuery]int?mes=null
                                                 , [FromQuery]int?anio=null)
@@ -27,18 +27,40 @@ namespace FarmaceuticaBD1.Controllers
             return Ok(result);
         }
 
-        [HttpGet("producto_top")]
+        [HttpGet("obtener_producto_top")]
         public async Task<IActionResult> GetProductoTop()
         {
-            VwProductoTop top = await _FacturaServices.GetProductoTop();
+            List<VwProductoTop> top = await _FacturaServices.GetProductoTop();
             return Ok(top);
         }
 
-        [HttpGet("medicamento_top")]
+        [HttpGet("obtener_medicamento_top")]
         public async Task<IActionResult> GetMedicamentoTop()
         {
-            VwMedicamentoTop top = await _FacturaServices.GetMedicamentoTop();
+            List<VwMedicamentoTop> top = await _FacturaServices.GetMedicamentoTop();
             return Ok(top);
+        }
+
+        [HttpGet("obtener_ganancias_mensuales")]
+        public async Task<IActionResult> GetGanancias([FromQuery]int? anio)
+        {
+            List<sp_ganancias_mensualesResult> ganMensual = await _FacturaServices.GetGananciasMensualesAsync(anio);
+            return Ok(ganMensual);
+        }
+
+        [HttpGet("obtener_ventas_por_sucursal")]
+        public async Task<IActionResult> GetVentaPorSucursal()
+        {
+            List<VwVentasPorSucursal> ventasPorSucursalLts = await _FacturaServices.GetVentasPorSucursalAsync();
+            if(ventasPorSucursalLts == null) { return NotFound("No hay ventas por sucursal registradas"); }
+            return Ok(ventasPorSucursalLts);
+        }
+        [HttpGet("obtener_metodo_pago_utilizado")]
+        public async Task<IActionResult> GetMPUsado()
+        {
+            List<VwMpusado> mpLts = await _FacturaServices.GetMPUsadoAsync();
+            if (mpLts == null) { return NotFound("No hay metodo de pago registrados"); }
+            return Ok(mpLts);
         }
     }
 }

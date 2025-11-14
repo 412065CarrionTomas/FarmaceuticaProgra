@@ -18,7 +18,7 @@ namespace FarmaceuticaBD1.Controllers
         }
 
         // GET: api/<MedicamentoController>
-        [HttpGet]
+        [HttpGet("obtener_medicamentos_por_filtros")]
         public async Task<IActionResult> GetBasic([FromQuery] string? nombre = null
                                             , [FromQuery] string? codigoBarra = null
                                             , [FromQuery] string? sucursal =null
@@ -29,7 +29,7 @@ namespace FarmaceuticaBD1.Controllers
             return Ok(medicamentoDTOLTS);
         }
 
-        [HttpGet("lote")]
+        [HttpGet("obtener_loteMed_por_id")]
         public async Task<IActionResult> GetLote([FromQuery] int id)
         {
             if (id <= 0) { return BadRequest(); }

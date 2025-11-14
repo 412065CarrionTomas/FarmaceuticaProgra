@@ -429,10 +429,13 @@ alter table PROVEEDORES
 add activo int
 go
 
-alter table SUCURSALES
+alter table MEDICAMENTOS
 add activo int
 go
 
+alter table PRODUCTOS
+add activo int
+go
 
 create view [dbo].[VwMedicamentoTop]
 as
@@ -478,10 +481,11 @@ as
 begin
     set @empleadoID  = (SELECT EmpleadoID FROM EMPLEADOS WHERE DocumentoEmpleado = @empleado_dni)
     set @proveedorID  = (SELECT ProveedorID FROM PROVEEDORES WHERE RazonSocial = @proveedor);
-    set @repartidorID  = (SELECT RepartidorID FROM REPARTIDORES WHERE EmailRepartidor like @repartidor);
+    set @repartidorID  = (SELECT RepartidorID FROM REPARTIDORES WHERE EmailRepartidor = @repartidor);
     set @sucursalID  = (SELECT SucursalID FROM SUCURSALES WHERE Descripcion = @sucursal);
 end
 go
+
 
 create procedure sp_TraerTablasDetalle
     @codigoBarraProducto varchar(100),
@@ -499,3 +503,4 @@ begin
     set @loteProductoReturn = (SELECT Lote_ProductoID FROM LOTES_PRODUCTOS WHERE Lote_ProductoID = @loteProducto)
     set @loteMedicamentoReturn = (SELECT Lote_MedicamentoID FROM LOTES_MEDICAMENTOS WHERE Lote_MedicamentoID = @loteMedicamento)
 end
+

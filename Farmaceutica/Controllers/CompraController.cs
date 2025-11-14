@@ -18,7 +18,7 @@ namespace Farmaceutica.Controllers
         }
 
         // GET: api/<CompraController>
-        [HttpGet("compras_por_filtros")]
+        [HttpGet("obtener_compras_por_filtros")]
         public async Task<IActionResult> GetCompra(DateTime? fechaInicio = null
                                                         , DateTime? fechaFin = null
                                                         , string? sucursal = null
@@ -47,7 +47,7 @@ namespace Farmaceutica.Controllers
             return Ok(result);
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("borrar_compra")]
         public async Task<IActionResult> Delete(int id)
         {
             bool result = await _CompraServices.DeleteCompraAsync(id);

@@ -322,40 +322,40 @@ INSERT INTO SUCURSALES (Descripcion, Direccion, LocalidadID) VALUES ('Sucursal M
 GO
 
 -- 18) PRODUCTOS (15) -> Tipo_SuministroID 1..15, Clasificacion_SuministroID 1..15, Unidad_MedidaID 1..15, Tipo_PresentacionID 1..15
-INSERT INTO PRODUCTOS (Codigo_Barra_ProductoID, Nombre_Producto, Precio_Producto, Tipo_SuministroID, Clasificacion_SuministroID, Unidad_MedidaID, Tipo_PresentacionID) VALUES ('P000000001','Termómetro Digital',1200.00,13,15,1,13);
-INSERT INTO PRODUCTOS (Codigo_Barra_ProductoID, Nombre_Producto, Precio_Producto, Tipo_SuministroID, Clasificacion_SuministroID, Unidad_MedidaID, Tipo_PresentacionID) VALUES ('P000000002','Jeringa 5ml',45.00,8,15,9,11);
-INSERT INTO PRODUCTOS (Codigo_Barra_ProductoID, Nombre_Producto, Precio_Producto, Tipo_SuministroID, Clasificacion_SuministroID, Unidad_MedidaID, Tipo_PresentacionID) VALUES ('P000000003','Guantes Nitrilo',350.00,8,15,8,13);
-INSERT INTO PRODUCTOS (Codigo_Barra_ProductoID, Nombre_Producto, Precio_Producto, Tipo_SuministroID, Clasificacion_SuministroID, Unidad_MedidaID, Tipo_PresentacionID) VALUES ('P000000004','Mascarilla Quirúrgica',80.00,8,15,8,13);
-INSERT INTO PRODUCTOS (Codigo_Barra_ProductoID, Nombre_Producto, Precio_Producto, Tipo_SuministroID, Clasificacion_SuministroID, Unidad_MedidaID, Tipo_PresentacionID) VALUES ('P000000005','Termo para suero',2000.00,13,15,1,13);
-INSERT INTO PRODUCTOS (Codigo_Barra_ProductoID, Nombre_Producto, Precio_Producto, Tipo_SuministroID, Clasificacion_SuministroID, Unidad_MedidaID, Tipo_PresentacionID) VALUES ('P000000006','Bata descartable',150.00,8,15,8,13);
-INSERT INTO PRODUCTOS (Codigo_Barra_ProductoID, Nombre_Producto, Precio_Producto, Tipo_SuministroID, Clasificacion_SuministroID, Unidad_MedidaID, Tipo_PresentacionID) VALUES ('P000000007','Alcohol en gel 500ml',380.00,12,15,3,2);
-INSERT INTO PRODUCTOS (Codigo_Barra_ProductoID, Nombre_Producto, Precio_Producto, Tipo_SuministroID, Clasificacion_SuministroID, Unidad_MedidaID, Tipo_PresentacionID) VALUES ('P000000008','Termómetro infrarrojo',5500.00,13,15,1,13);
-INSERT INTO PRODUCTOS (Codigo_Barra_ProductoID, Nombre_Producto, Precio_Producto, Tipo_SuministroID, Clasificacion_SuministroID, Unidad_MedidaID, Tipo_PresentacionID) VALUES ('P000000009','Sonda nasogástrica',900.00,8,15,8,13);
-INSERT INTO PRODUCTOS (Codigo_Barra_ProductoID, Nombre_Producto, Precio_Producto, Tipo_SuministroID, Clasificacion_SuministroID, Unidad_MedidaID, Tipo_PresentacionID) VALUES ('P000000010','Esfigmomanómetro',3200.00,13,15,1,13);
-INSERT INTO PRODUCTOS (Codigo_Barra_ProductoID, Nombre_Producto, Precio_Producto, Tipo_SuministroID, Clasificacion_SuministroID, Unidad_MedidaID, Tipo_PresentacionID) VALUES ('P000000011','Termómetro de mercurio',800.00,13,15,1,13);
-INSERT INTO PRODUCTOS (Codigo_Barra_ProductoID, Nombre_Producto, Precio_Producto, Tipo_SuministroID, Clasificacion_SuministroID, Unidad_MedidaID, Tipo_PresentacionID) VALUES ('P000000012','Pañales adultos',950.00,11,15,8,13);
-INSERT INTO PRODUCTOS (Codigo_Barra_ProductoID, Nombre_Producto, Precio_Producto, Tipo_SuministroID, Clasificacion_SuministroID, Unidad_MedidaID, Tipo_PresentacionID) VALUES ('P000000013','Sueros isotónicos 500ml',420.00,13,15,10,14);
-INSERT INTO PRODUCTOS (Codigo_Barra_ProductoID, Nombre_Producto, Precio_Producto, Tipo_SuministroID, Clasificacion_SuministroID, Unidad_MedidaID, Tipo_PresentacionID) VALUES ('P000000014','Aspirina 500mg',70.00,1,2,4,13);
-INSERT INTO PRODUCTOS (Codigo_Barra_ProductoID, Nombre_Producto, Precio_Producto, Tipo_SuministroID, Clasificacion_SuministroID, Unidad_MedidaID, Tipo_PresentacionID) VALUES ('P000000015','Venda elástica',120.00,8,15,8,13);
+INSERT INTO PRODUCTOS (Codigo_Barra_ProductoID, Nombre_Producto, Precio_Producto, Tipo_SuministroID, Clasificacion_SuministroID, Unidad_MedidaID, Tipo_PresentacionID, activo) VALUES ('P000000001','Termómetro Digital',1200.00,13,15,1,13,1);
+INSERT INTO PRODUCTOS (Codigo_Barra_ProductoID, Nombre_Producto, Precio_Producto, Tipo_SuministroID, Clasificacion_SuministroID, Unidad_MedidaID, Tipo_PresentacionID, activo) VALUES ('P000000002','Jeringa 5ml',45.00,8,15,9,11,1);
+INSERT INTO PRODUCTOS (Codigo_Barra_ProductoID, Nombre_Producto, Precio_Producto, Tipo_SuministroID, Clasificacion_SuministroID, Unidad_MedidaID, Tipo_PresentacionID, activo) VALUES ('P000000003','Guantes Nitrilo',350.00,8,15,8,13,1);
+INSERT INTO PRODUCTOS (Codigo_Barra_ProductoID, Nombre_Producto, Precio_Producto, Tipo_SuministroID, Clasificacion_SuministroID, Unidad_MedidaID, Tipo_PresentacionID, activo) VALUES ('P000000004','Mascarilla Quirúrgica',80.00,8,15,8,13,1);
+INSERT INTO PRODUCTOS (Codigo_Barra_ProductoID, Nombre_Producto, Precio_Producto, Tipo_SuministroID, Clasificacion_SuministroID, Unidad_MedidaID, Tipo_PresentacionID, activo) VALUES ('P000000005','Termo para suero',2000.00,13,15,1,13,1);
+INSERT INTO PRODUCTOS (Codigo_Barra_ProductoID, Nombre_Producto, Precio_Producto, Tipo_SuministroID, Clasificacion_SuministroID, Unidad_MedidaID, Tipo_PresentacionID, activo) VALUES ('P000000006','Bata descartable',150.00,8,15,8,13,1);
+INSERT INTO PRODUCTOS (Codigo_Barra_ProductoID, Nombre_Producto, Precio_Producto, Tipo_SuministroID, Clasificacion_SuministroID, Unidad_MedidaID, Tipo_PresentacionID, activo) VALUES ('P000000007','Alcohol en gel 500ml',380.00,12,15,3,2,1);
+INSERT INTO PRODUCTOS (Codigo_Barra_ProductoID, Nombre_Producto, Precio_Producto, Tipo_SuministroID, Clasificacion_SuministroID, Unidad_MedidaID, Tipo_PresentacionID, activo) VALUES ('P000000008','Termómetro infrarrojo',5500.00,13,15,1,13,1);
+INSERT INTO PRODUCTOS (Codigo_Barra_ProductoID, Nombre_Producto, Precio_Producto, Tipo_SuministroID, Clasificacion_SuministroID, Unidad_MedidaID, Tipo_PresentacionID, activo) VALUES ('P000000009','Sonda nasogástrica',900.00,8,15,8,13,1);
+INSERT INTO PRODUCTOS (Codigo_Barra_ProductoID, Nombre_Producto, Precio_Producto, Tipo_SuministroID, Clasificacion_SuministroID, Unidad_MedidaID, Tipo_PresentacionID, activo) VALUES ('P000000010','Esfigmomanómetro',3200.00,13,15,1,13,1);
+INSERT INTO PRODUCTOS (Codigo_Barra_ProductoID, Nombre_Producto, Precio_Producto, Tipo_SuministroID, Clasificacion_SuministroID, Unidad_MedidaID, Tipo_PresentacionID, activo) VALUES ('P000000011','Termómetro de mercurio',800.00,13,15,1,13,1);
+INSERT INTO PRODUCTOS (Codigo_Barra_ProductoID, Nombre_Producto, Precio_Producto, Tipo_SuministroID, Clasificacion_SuministroID, Unidad_MedidaID, Tipo_PresentacionID, activo) VALUES ('P000000012','Pañales adultos',950.00,11,15,8,13,0);
+INSERT INTO PRODUCTOS (Codigo_Barra_ProductoID, Nombre_Producto, Precio_Producto, Tipo_SuministroID, Clasificacion_SuministroID, Unidad_MedidaID, Tipo_PresentacionID, activo) VALUES ('P000000013','Sueros isotónicos 500ml',420.00,13,15,10,14,1);
+INSERT INTO PRODUCTOS (Codigo_Barra_ProductoID, Nombre_Producto, Precio_Producto, Tipo_SuministroID, Clasificacion_SuministroID, Unidad_MedidaID, Tipo_PresentacionID, activo) VALUES ('P000000014','Aspirina 500mg',70.00,1,2,4,13,1);
+INSERT INTO PRODUCTOS (Codigo_Barra_ProductoID, Nombre_Producto, Precio_Producto, Tipo_SuministroID, Clasificacion_SuministroID, Unidad_MedidaID, Tipo_PresentacionID, activo) VALUES ('P000000015','Venda elástica',120.00,8,15,8,13,0);
 
 GO
 
 -- 19) MEDICAMENTOS (15) -> Unidad_MedidaID 1..15, Tipo_PresentacionID 1..15, Clasificacion 1..15, Tipo_SuministroID 1..15, RestriccionID 1..15
-INSERT INTO MEDICAMENTOS (Codigo_Barra_MedicamentoID, Nombre_Medicamento, Precio_Medicamento, Unidad_MedidaID, Tipo_PresentacionID, Clasificacion_SuministroID, Tipo_SuministroID, RestriccionID) VALUES ('M000000001','Amoxicilina 500mg',350.00,4,13,1,1,2);
-INSERT INTO MEDICAMENTOS (Codigo_Barra_MedicamentoID, Nombre_Medicamento, Precio_Medicamento, Unidad_MedidaID, Tipo_PresentacionID, Clasificacion_SuministroID, Tipo_SuministroID, RestriccionID) VALUES ('M000000002','Ibuprofeno 600mg',120.00,4,13,3,1,1);
-INSERT INTO MEDICAMENTOS (Codigo_Barra_MedicamentoID, Nombre_Medicamento, Precio_Medicamento, Unidad_MedidaID, Tipo_PresentacionID, Clasificacion_SuministroID, Tipo_SuministroID, RestriccionID) VALUES ('M000000003','Loratadina 10mg',250.00,4,13,4,1,1);
-INSERT INTO MEDICAMENTOS (Codigo_Barra_MedicamentoID, Nombre_Medicamento, Precio_Medicamento, Unidad_MedidaID, Tipo_PresentacionID, Clasificacion_SuministroID, Tipo_SuministroID, RestriccionID) VALUES ('M000000004','Metformina 850mg',180.00,4,13,6,1,1);
-INSERT INTO MEDICAMENTOS (Codigo_Barra_MedicamentoID, Nombre_Medicamento, Precio_Medicamento, Unidad_MedidaID, Tipo_PresentacionID, Clasificacion_SuministroID, Tipo_SuministroID, RestriccionID) VALUES ('M000000005','Omeprazol 20mg',210.00,4,13,8,1,1);
-INSERT INTO MEDICAMENTOS (Codigo_Barra_MedicamentoID, Nombre_Medicamento, Precio_Medicamento, Unidad_MedidaID, Tipo_PresentacionID, Clasificacion_SuministroID, Tipo_SuministroID, RestriccionID) VALUES ('M000000006','Prednisona 20mg',300.00,4,13,3,1,2);
-INSERT INTO MEDICAMENTOS (Codigo_Barra_MedicamentoID, Nombre_Medicamento, Precio_Medicamento, Unidad_MedidaID, Tipo_PresentacionID, Clasificacion_SuministroID, Tipo_SuministroID, RestriccionID) VALUES ('M000000007','Vacuna Influenza 2025',1200.00,10,2,7,7,9);
-INSERT INTO MEDICAMENTOS (Codigo_Barra_MedicamentoID, Nombre_Medicamento, Precio_Medicamento, Unidad_MedidaID, Tipo_PresentacionID, Clasificacion_SuministroID, Tipo_SuministroID, RestriccionID) VALUES ('M000000008','Crema Dermática 30g',480.00,5,11,6,1,6);
-INSERT INTO MEDICAMENTOS (Codigo_Barra_MedicamentoID, Nombre_Medicamento, Precio_Medicamento, Unidad_MedidaID, Tipo_PresentacionID, Clasificacion_SuministroID, Tipo_SuministroID, RestriccionID) VALUES ('M000000009','Salbutamol inhalador',950.00,1,13,10,1,2);
-INSERT INTO MEDICAMENTOS (Codigo_Barra_MedicamentoID, Nombre_Medicamento, Precio_Medicamento, Unidad_MedidaID, Tipo_PresentacionID, Clasificacion_SuministroID, Tipo_SuministroID, RestriccionID) VALUES ('M000000010','Paracetamol 500mg',60.00,4,13,2,1,1);
-INSERT INTO MEDICAMENTOS (Codigo_Barra_MedicamentoID, Nombre_Medicamento, Precio_Medicamento, Unidad_MedidaID, Tipo_PresentacionID, Clasificacion_SuministroID, Tipo_SuministroID, RestriccionID) VALUES ('M000000011','Enalapril 10mg',340.00,4,13,5,1,2);
-INSERT INTO MEDICAMENTOS (Codigo_Barra_MedicamentoID, Nombre_Medicamento, Precio_Medicamento, Unidad_MedidaID, Tipo_PresentacionID, Clasificacion_SuministroID, Tipo_SuministroID, RestriccionID) VALUES ('M000000012','Vitamina D 1000IU',220.00,6,13,5,5,1);
-INSERT INTO MEDICAMENTOS (Codigo_Barra_MedicamentoID, Nombre_Medicamento, Precio_Medicamento, Unidad_MedidaID, Tipo_PresentacionID, Clasificacion_SuministroID, Tipo_SuministroID, RestriccionID) VALUES ('M000000013','Insulina NPH 100U',1800.00,6,2,6,1,2);
-INSERT INTO MEDICAMENTOS (Codigo_Barra_MedicamentoID, Nombre_Medicamento, Precio_Medicamento, Unidad_MedidaID, Tipo_PresentacionID, Clasificacion_SuministroID, Tipo_SuministroID, RestriccionID) VALUES ('M000000014','Crema Antifúngica 20g',260.00,5,11,6,1,6);
-INSERT INTO MEDICAMENTOS (Codigo_Barra_MedicamentoID, Nombre_Medicamento, Precio_Medicamento, Unidad_MedidaID, Tipo_PresentacionID, Clasificacion_SuministroID, Tipo_SuministroID, RestriccionID) VALUES ('M000000015','Antibiótico tópico',310.00,5,11,1,1,2);
+INSERT INTO MEDICAMENTOS (Codigo_Barra_MedicamentoID, Nombre_Medicamento, Precio_Medicamento, Unidad_MedidaID, Tipo_PresentacionID, Clasificacion_SuministroID, Tipo_SuministroID, RestriccionID,activo) VALUES ('M000000001','Amoxicilina 500mg',350.00,4,13,1,1,2,1);
+INSERT INTO MEDICAMENTOS (Codigo_Barra_MedicamentoID, Nombre_Medicamento, Precio_Medicamento, Unidad_MedidaID, Tipo_PresentacionID, Clasificacion_SuministroID, Tipo_SuministroID, RestriccionID,activo) VALUES ('M000000002','Ibuprofeno 600mg',120.00,4,13,3,1,1,1);
+INSERT INTO MEDICAMENTOS (Codigo_Barra_MedicamentoID, Nombre_Medicamento, Precio_Medicamento, Unidad_MedidaID, Tipo_PresentacionID, Clasificacion_SuministroID, Tipo_SuministroID, RestriccionID,activo) VALUES ('M000000003','Loratadina 10mg',250.00,4,13,4,1,1,1);
+INSERT INTO MEDICAMENTOS (Codigo_Barra_MedicamentoID, Nombre_Medicamento, Precio_Medicamento, Unidad_MedidaID, Tipo_PresentacionID, Clasificacion_SuministroID, Tipo_SuministroID, RestriccionID,activo) VALUES ('M000000004','Metformina 850mg',180.00,4,13,6,1,1,1);
+INSERT INTO MEDICAMENTOS (Codigo_Barra_MedicamentoID, Nombre_Medicamento, Precio_Medicamento, Unidad_MedidaID, Tipo_PresentacionID, Clasificacion_SuministroID, Tipo_SuministroID, RestriccionID,activo) VALUES ('M000000005','Omeprazol 20mg',210.00,4,13,8,1,1,1);
+INSERT INTO MEDICAMENTOS (Codigo_Barra_MedicamentoID, Nombre_Medicamento, Precio_Medicamento, Unidad_MedidaID, Tipo_PresentacionID, Clasificacion_SuministroID, Tipo_SuministroID, RestriccionID,activo) VALUES ('M000000006','Prednisona 20mg',300.00,4,13,3,1,2,1);
+INSERT INTO MEDICAMENTOS (Codigo_Barra_MedicamentoID, Nombre_Medicamento, Precio_Medicamento, Unidad_MedidaID, Tipo_PresentacionID, Clasificacion_SuministroID, Tipo_SuministroID, RestriccionID,activo) VALUES ('M000000007','Vacuna Influenza 2025',1200.00,10,2,7,7,9,1);
+INSERT INTO MEDICAMENTOS (Codigo_Barra_MedicamentoID, Nombre_Medicamento, Precio_Medicamento, Unidad_MedidaID, Tipo_PresentacionID, Clasificacion_SuministroID, Tipo_SuministroID, RestriccionID,activo) VALUES ('M000000008','Crema Dermática 30g',480.00,5,11,6,1,6,0);
+INSERT INTO MEDICAMENTOS (Codigo_Barra_MedicamentoID, Nombre_Medicamento, Precio_Medicamento, Unidad_MedidaID, Tipo_PresentacionID, Clasificacion_SuministroID, Tipo_SuministroID, RestriccionID,activo) VALUES ('M000000009','Salbutamol inhalador',950.00,1,13,10,1,2,0);
+INSERT INTO MEDICAMENTOS (Codigo_Barra_MedicamentoID, Nombre_Medicamento, Precio_Medicamento, Unidad_MedidaID, Tipo_PresentacionID, Clasificacion_SuministroID, Tipo_SuministroID, RestriccionID,activo) VALUES ('M000000010','Paracetamol 500mg',60.00,4,13,2,1,1,1);
+INSERT INTO MEDICAMENTOS (Codigo_Barra_MedicamentoID, Nombre_Medicamento, Precio_Medicamento, Unidad_MedidaID, Tipo_PresentacionID, Clasificacion_SuministroID, Tipo_SuministroID, RestriccionID,activo) VALUES ('M000000011','Enalapril 10mg',340.00,4,13,5,1,2,1);
+INSERT INTO MEDICAMENTOS (Codigo_Barra_MedicamentoID, Nombre_Medicamento, Precio_Medicamento, Unidad_MedidaID, Tipo_PresentacionID, Clasificacion_SuministroID, Tipo_SuministroID, RestriccionID,activo) VALUES ('M000000012','Vitamina D 1000IU',220.00,6,13,5,5,1,1);
+INSERT INTO MEDICAMENTOS (Codigo_Barra_MedicamentoID, Nombre_Medicamento, Precio_Medicamento, Unidad_MedidaID, Tipo_PresentacionID, Clasificacion_SuministroID, Tipo_SuministroID, RestriccionID,activo) VALUES ('M000000013','Insulina NPH 100U',1800.00,6,2,6,1,2,1);
+INSERT INTO MEDICAMENTOS (Codigo_Barra_MedicamentoID, Nombre_Medicamento, Precio_Medicamento, Unidad_MedidaID, Tipo_PresentacionID, Clasificacion_SuministroID, Tipo_SuministroID, RestriccionID,activo) VALUES ('M000000014','Crema Antifúngica 20g',260.00,5,11,6,1,6,0);
+INSERT INTO MEDICAMENTOS (Codigo_Barra_MedicamentoID, Nombre_Medicamento, Precio_Medicamento, Unidad_MedidaID, Tipo_PresentacionID, Clasificacion_SuministroID, Tipo_SuministroID, RestriccionID,activo) VALUES ('M000000015','Antibiótico tópico',310.00,5,11,1,1,2,1);
 
 GO
 
@@ -626,21 +626,21 @@ INSERT INTO COMPRAS (Fecha_Compra, EmpleadoID, ProveedorID, RepartidorID, Sucurs
 GO
 
 -- 34) DETALLES_COMPRAS (15) -> CompraID 1..15, Lote_ProductoID 1..15, Lote_MedicamentoID 1..15
-INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (1,1,NULL,'P000000001',10,null,1);
-INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (2,null,'M000000002',NULL,50,2,1);
-INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (3,3,NULL,'P000000003',100,null,1);
-INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (4,null,'M000000004',NULL,30,4,1);
-INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (5,5,NULL,'P000000005',5,null,1);
-INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (6,null,'M000000006',NULL,20,6,1);
-INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (7,7,NULL,'P000000007',60,null,1);
-INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (8,null,'M000000008',NULL,12,8,1);
-INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (9,9,NULL,'P000000009',40,null,1);
-INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (10,null,'M000000010',NULL,200,10,1);
-INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (11,11,NULL,'P000000011',15,null,0);
-INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID,activo) VALUES (12,null,'M000000012',NULL,80,12,1);
-INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (13,13,NULL,'P000000013',25,null,1);
-INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (14,null,'M000000014',NULL,35,14,1);
-INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID,activo) VALUES (15,15,NULL,'P000000015',45,null,1);
+INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (1,1,NULL,'P000000001',10,1,1);
+INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (2,2,'M000000002',NULL,50,2,1);
+INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (3,3,NULL,'P000000003',100,3,1);
+INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (4,4,'M000000004',NULL,30,4,1);
+INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (5,5,NULL,'P000000005',5,5,1);
+INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (6,6,'M000000006',NULL,20,6,1);
+INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (7,7,NULL,'P000000007',60,7,1);
+INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (8,8,'M000000008',NULL,12,8,1);
+INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (9,9,NULL,'P000000009',40,9,1);
+INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (10,10,'M000000010',NULL,200,10,1);
+INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (11,11,NULL,'P000000011',15,11,0);
+INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID,activo) VALUES (12,12,'M000000012',NULL,80,12,1);
+INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (13,13,NULL,'P000000013',25,13,1);
+INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID, activo) VALUES (14,14,'M000000014',NULL,35,14,1);
+INSERT INTO DETALLES_COMPRAS (CompraID, Lote_ProductoID, Codigo_Barra_MedicamentoID, Codigo_Barra_ProductoID, Cantidad, Lote_MedicamentoID,activo) VALUES (15,15,NULL,'P000000015',45,15,1);
 
 GO
 

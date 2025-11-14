@@ -16,7 +16,7 @@ namespace Farmaceutica.Application.Validates
             if (compraDto.EmpleadoDni == null ||
                 compraDto.EmpleadoDni.Count(c => char.IsDigit(c) && c != '0') < 4)
                 throw new ArgumentException("El DNI debe contener al menos 4 dígitos distintos de 0.", nameof(compraDto.EmpleadoDni));
-            if (compraDto.Activo != 0 || compraDto.Activo != 1)
+            if (compraDto.Activo != false || compraDto.Activo != true)
                 throw new ArgumentOutOfRangeException("El campo activo debe ser 1 o 0.", nameof(compraDto.Activo));
             foreach (DetalleCompraDto detalleCompraDto in compraDto.DetallesCompraDtoLts)
             {
@@ -26,7 +26,7 @@ namespace Farmaceutica.Application.Validates
                     throw new ArgumentOutOfRangeException("El lote del Medicamento debe ser mayor a 0.", nameof(detalleCompraDto.LoteMedicamentoId));
                 if (detalleCompraDto.Cantidad <= 0)
                     throw new ArgumentOutOfRangeException("La cantidad debe ser mayor a 0.", nameof(detalleCompraDto.Cantidad));
-                if (compraDto.Activo != 0 || compraDto.Activo != 1)
+                if (compraDto.Activo != false || compraDto.Activo != true)
                     throw new ArgumentOutOfRangeException("El campo activo del detalle debe ser 1 o 0.", nameof(compraDto.Activo));
                 if (string.IsNullOrEmpty(detalleCompraDto.CodigoBarraProductoId))
                     throw new ArgumentNullException("El codigo de barra del Producto no puede estar vacio.", nameof(detalleCompraDto.CodigoBarraProductoId));

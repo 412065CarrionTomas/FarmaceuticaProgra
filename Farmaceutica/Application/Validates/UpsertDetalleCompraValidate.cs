@@ -12,7 +12,7 @@ namespace Farmaceutica.Application.Validates
         {
             if (detalle is null) throw new ArgumentNullException(nameof(detalle));
 
-            detalle.Activo ??= 1;
+            detalle.Activo ??= true;
 
             detalle.CodigoBarraMedicamentoId = NullIfEmptyOrDefault(detalle.CodigoBarraMedicamentoId);
             detalle.CodigoBarraProductoId = NullIfEmptyOrDefault(detalle.CodigoBarraProductoId);

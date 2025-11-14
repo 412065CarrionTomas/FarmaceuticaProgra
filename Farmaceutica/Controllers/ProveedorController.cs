@@ -20,7 +20,7 @@ namespace Farmaceutica.Controllers
         }
 
         // GET: api/<ProveedorController>
-        [HttpGet("proveedores")]
+        [HttpGet("obtener_proveedores")]
         public async Task<IActionResult> GetAll()
         {
             var result = await _ProveedorServices.GetAllProveedoresAsync();
@@ -29,7 +29,7 @@ namespace Farmaceutica.Controllers
         }
 
         // GET: api/<ProveedorController>
-        [HttpGet("proveedores_por_nombre")]
+        [HttpGet("obtner_proveedores_por_nombre")]
         public async Task<IActionResult> Get(string? nombre)
         {
             var result = await _ProveedorServices.GetProveedoresByNameAsync(nombre);
@@ -45,7 +45,7 @@ namespace Farmaceutica.Controllers
             return Ok(result);
         }
 
-        [HttpPost("update_proveedor")]
+        [HttpPost("actualizar_proveedor")]
         public async Task<IActionResult> Post([FromQuery] string cuit, [FromBody] ProveedoresDTOs value)
         {
             if (string.IsNullOrEmpty(cuit)) { return BadRequest("No pued eingresar cuit vacio."); }
@@ -54,7 +54,7 @@ namespace Farmaceutica.Controllers
             return Ok(result);
         }
 
-        [HttpDelete("delete_proveedor")]
+        [HttpDelete("borrar_proveedor")]
         public async Task<IActionResult> Delete([FromQuery] string cuit)
         {
             if (string.IsNullOrEmpty(cuit)) { return BadRequest("No pued eingresar cuit vacio."); }

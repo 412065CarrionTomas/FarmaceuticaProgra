@@ -8,6 +8,6 @@
         public string? CodigoBarraMedicamentoId { get; set; }
         public int? LoteMedicamentoId { get; set; }
         public int Cantidad { get; set; }
-        public int? Activo { get; set; }
+        public bool Activo { get; set; }
     }
 }

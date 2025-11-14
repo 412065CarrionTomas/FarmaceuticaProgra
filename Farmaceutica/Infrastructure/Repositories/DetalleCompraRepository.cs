@@ -22,7 +22,7 @@ namespace Farmaceutica.Infrastructure.Repositories
 
             if (detalle == null) return false;
 
-            detalle.Activo = 0;
+            detalle.Activo = false;
             return await _Context.SaveChangesAsync() > 0;
         }
 

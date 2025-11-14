@@ -30,8 +30,8 @@ namespace Farmaceutica.Application.Services
         public async Task<List<string>> GetProveedoresByNameAsync(string nombre)
         {
             Expression<Func<Proveedores, bool>> condicon = x =>
-                (string.IsNullOrEmpty(nombre) && x.Activo == 1 ||
-                x.RazonSocial.Contains(nombre) && x.Activo == 1);
+                (string.IsNullOrEmpty(nombre) && x.Activo == true ||
+                x.RazonSocial.Contains(nombre) && x.Activo == true);
             List<Proveedores> proveedoresLts = await _ProveedorRepository.GetProveedoresFilterAsync(condicon);
             List<string> proveedoresString = proveedoresLts.Select(x => x.RazonSocial).ToList();
             return proveedoresString;

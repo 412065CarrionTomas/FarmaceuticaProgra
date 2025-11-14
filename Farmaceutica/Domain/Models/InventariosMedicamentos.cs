@@ -17,6 +17,8 @@ public partial class InventariosMedicamentos
 
     public long? StockActual { get; set; }
 
+    public bool? Activo { get; set; }
+
     public virtual Medicamentos Medicamento { get; set; }
 
     public virtual Sucursales Sucursal { get; set; }

@@ -21,7 +21,7 @@ namespace Farmaceutica.Infrastructure.Repositories
         {
             Compras? objTrack = await _Context.Compras.FindAsync(id);
             if (objTrack == null) { return false; }
-            objTrack.Activo = 0;
+            objTrack.Activo = false;
             return await _Context.SaveChangesAsync() > 0;
         }
 
@@ -44,7 +44,7 @@ namespace Farmaceutica.Infrastructure.Repositories
             foreach (var compra in compras)
             {
                 compra.DetallesCompras = compra.DetallesCompras
-                    .Where(d => d.Activo == 1)
+                    .Where(d => d.Activo == true)
                     .ToList();
             }
 
