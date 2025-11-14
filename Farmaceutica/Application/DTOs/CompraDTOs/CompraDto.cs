@@ -6,15 +6,15 @@ namespace Farmaceutica.Application.DTOs.CompraDTOs
     {
         public DateTime? FechaCompra { get; set; }
 
-        public string? EmpleadoDni { get; set; }
+        public int? EmpleadoId { get; set; }
 
-        public string? Proveedor { get; set; }
+        public int? ProveedorId { get; set; }
 
-        public string? RepartidorGmail { get; set; }
+        public int? RepartidorId { get; set; }
 
-        public string? Sucursal { get; set; }
+        public int? SucursalId { get; set; }
+
+        public bool? Activo { get; set; }
         public ICollection<DetalleCompraDto> DetallesCompraDtoLts { get; set; } = new List<DetalleCompraDto>();
-
-        public bool Activo { get; set; }
     }
 }

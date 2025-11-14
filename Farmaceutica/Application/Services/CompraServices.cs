@@ -3,7 +3,6 @@ using Domain.Models;
 using Farmaceutica.Application.DTOs.CompraDTOs;
 using Farmaceutica.Application.Interfaces;
 using Farmaceutica.Application.Validates;
-using Microsoft.AspNetCore.Razor.TagHelpers;
 using System.Linq.Expressions;
 
 namespace Farmaceutica.Application.Services
@@ -19,7 +18,7 @@ namespace Farmaceutica.Application.Services
             _Mapper = mapper;
         }
 
-        public async Task<List<CompraDto>?> GetComprasByFilters(DateTime? fechaInicio
+        public async Task<List<GetCompraDto>?> GetComprasByFilters(DateTime? fechaInicio
                                                         , DateTime? fechaFin, string? sucursal
                                                         , string? proveedor)
         {
@@ -36,7 +35,7 @@ namespace Farmaceutica.Application.Services
 
             List<Compras>? compraDom = await _CompraRepository.GetComprasAsync(condicion);
             if (compraDom == null) { return null; }
-            List<CompraDto> compraDto = _Mapper.Map<List<CompraDto>>(compraDom);
+            List<GetCompraDto> compraDto = _Mapper.Map<List<GetCompraDto>>(compraDom);
             return compraDto;
         }
 
@@ -48,32 +47,38 @@ namespace Farmaceutica.Application.Services
 
         public async Task<bool> InsertCompraAsync(CompraDto compras)
         {
-            CompraValidate.Validate(compras);
-            if(compras.DetallesCompraDtoLts == null) 
-                new ArgumentNullException(); 
-            var listDetails = _Mapper.Map<List<DetallesCompras>>(compras.DetallesCompraDtoLts);
+            if (compras.DetallesCompraDtoLts == null)
+                new ArgumentNullException();
             
-            foreach(DetallesCompras d in listDetails)
+            var compraDom = _Mapper.Map<Compras>(compras);
+
+            CompraValidate.Validate(compraDom);
+
+            foreach(DetallesCompras d in compraDom.DetallesCompras)
             {
                 UpsertDetalleCompraValidate.ReValidateDetail(d);
                 UpsertDetalleCompraValidate.ValidateLogic(d);
+
             }
-            
-            return await _CompraRepository.InsertCompraAsync(compras, listDetails);
+            return await _CompraRepository.InsertCompraAsync(compraDom);
         }
 
         public async Task<bool> UpdateComprasAsync(int id, CompraDto compra)
         {
-            CompraValidate.Validate(compra);
             if (compra.DetallesCompraDtoLts == null)
                 new ArgumentNullException();
-            var detailLts = _Mapper.Map<List<DetallesCompras>>(compra.DetallesCompraDtoLts);
-            foreach (DetallesCompras d in detailLts)
+
+            var compraDom = _Mapper.Map<Compras>(compra);
+
+            CompraValidate.Validate(compraDom);
+
+            foreach(DetallesCompras d in compraDom.DetallesCompras)
             {
                 UpsertDetalleCompraValidate.ReValidateDetail(d);
                 UpsertDetalleCompraValidate.ValidateLogic(d);
             }
-            return await _CompraRepository.UpdateCompraAsync(id, compra, detailLts);
+
+            return await _CompraRepository.UpdateCompraAsync(id, compraDom);
         }
 
     }

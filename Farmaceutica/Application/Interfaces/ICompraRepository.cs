@@ -7,8 +7,8 @@ namespace Farmaceutica.Application.Interfaces
     public interface ICompraRepository
     {
         Task<List<Compras>?> GetComprasAsync(Expression<Func<Compras, bool>> condicion);
-        Task<bool> UpdateCompraAsync(int id, CompraDto compras, List<DetallesCompras> details);
-        Task<bool> InsertCompraAsync(CompraDto compras, List<DetallesCompras> details);
+        Task<bool> UpdateCompraAsync(int id, Compras compras);
+        Task<bool> InsertCompraAsync(Compras compras);
         Task<bool> DeleteCompraAsync(int id);
 
     }

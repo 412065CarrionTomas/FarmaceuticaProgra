@@ -16,14 +16,6 @@ namespace Farmaceutica.Controllers
             _SucursalServices = sucursalServices;
         }
 
-        // GET: api/<ProveedorController>
-        [HttpGet("sucursal_por_nombre")]
-        public async Task<IActionResult> Get([FromQuery]string? nombre = null)
-        {
-            var result = await _SucursalServices.GetSucursalesByNameAsync(nombre);
-            if (result == null) { return NotFound("No hay sucursales."); }
-            return Ok(result);
-        }
 
         [HttpGet("sucursales")]
         public async Task<IActionResult> GetSucursal()

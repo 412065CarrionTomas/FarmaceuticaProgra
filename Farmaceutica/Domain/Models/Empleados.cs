@@ -2,6 +2,7 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace Domain.Models;
 
@@ -26,11 +27,11 @@ public partial class Empleados
     public int? TipoDocumentoId { get; set; }
 
     public string DocumentoEmpleado { get; set; }
-
+    [JsonIgnore]
     public virtual ICollection<Compras> Compras { get; set; } = new List<Compras>();
-
+    [JsonIgnore]
     public virtual ICollection<EmpleadosSucursales> EmpleadosSucursales { get; set; } = new List<EmpleadosSucursales>();
-
+    [JsonIgnore]
     public virtual ICollection<Facturas> Facturas { get; set; } = new List<Facturas>();
 
     public virtual Localidades Localidad { get; set; }

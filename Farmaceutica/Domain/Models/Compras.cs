@@ -2,6 +2,7 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace Domain.Models;
 
@@ -22,12 +23,12 @@ public partial class Compras
     public bool? Activo { get; set; }
 
     public virtual ICollection<DetallesCompras> DetallesCompras { get; set; } = new List<DetallesCompras>();
-
+    [JsonIgnore]
     public virtual Empleados Empleado { get; set; }
-
+    [JsonIgnore]
     public virtual Proveedores Proveedor { get; set; }
-
+    [JsonIgnore]
     public virtual Repartidores Repartidor { get; set; }
-
+    [JsonIgnore]
     public virtual Sucursales Sucursal { get; set; }
 }

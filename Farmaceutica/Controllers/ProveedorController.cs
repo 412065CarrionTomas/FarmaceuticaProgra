@@ -28,15 +28,6 @@ namespace Farmaceutica.Controllers
             return Ok(result);
         }
 
-        // GET: api/<ProveedorController>
-        [HttpGet("obtner_proveedores_por_nombre")]
-        public async Task<IActionResult> Get(string? nombre)
-        {
-            var result = await _ProveedorServices.GetProveedoresByNameAsync(nombre);
-            if (result == null) { return NotFound("No hay proveedores."); }
-            return Ok(result);
-        }
-
         [HttpPut("insert_proveedor")]
         public async Task<IActionResult> Put([FromBody] ProveedoresDTOs value)
         {

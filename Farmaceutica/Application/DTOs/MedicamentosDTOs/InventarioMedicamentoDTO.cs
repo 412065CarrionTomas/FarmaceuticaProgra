@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Metadata.Ecma335;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
 namespace FarmaceuticaBD1.Application.DTOs.MedicamentosDTOs
 {
     public class InventarioMedicamentoDTO
     {
+        public int InventarioMedicamentoId { get; set; }
         public string? CodigoBarra { get; set; }
         public string? Nombre { get; set; }
         public decimal Precio { get; set; }

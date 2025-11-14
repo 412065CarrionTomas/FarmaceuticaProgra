@@ -2,6 +2,7 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace Domain.Models;
 
@@ -16,6 +17,6 @@ public partial class Repartidores
     public string TelefonoRepartidor { get; set; }
 
     public string EmailRepartidor { get; set; }
-
+    [JsonIgnore]
     public virtual ICollection<Compras> Compras { get; set; } = new List<Compras>();
 }

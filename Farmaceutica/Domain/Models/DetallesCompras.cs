@@ -2,6 +2,7 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace Domain.Models;
 
@@ -22,10 +23,10 @@ public partial class DetallesCompras
     public int? LoteMedicamentoId { get; set; }
 
     public bool? Activo { get; set; }
-
+    [JsonIgnore]
     public virtual Compras Compra { get; set; }
-
+    [JsonIgnore]
     public virtual LotesMedicamentos LoteMedicamento { get; set; }
-
+    [JsonIgnore]
     public virtual LotesProductos LoteProducto { get; set; }
 }

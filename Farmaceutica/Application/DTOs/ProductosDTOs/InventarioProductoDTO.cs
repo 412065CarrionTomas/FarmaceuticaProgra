@@ -2,6 +2,7 @@
 {
     public class InventarioProductoDTO
     {
+        public int InventariosProductosId { get; set; }
         public string? CodigoBarra { get; set; }
         public string? Nombre { get; set; }
         public decimal Precio { get; set; }

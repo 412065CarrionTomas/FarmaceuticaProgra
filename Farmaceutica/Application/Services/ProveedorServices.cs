@@ -27,15 +27,6 @@ namespace Farmaceutica.Application.Services
             return _Mapper.Map<List<ProveedoresDTOs>>(proveedoresDomLts);
         }
 
-        public async Task<List<string>> GetProveedoresByNameAsync(string nombre)
-        {
-            Expression<Func<Proveedores, bool>> condicon = x =>
-                (string.IsNullOrEmpty(nombre) && x.Activo == true ||
-                x.RazonSocial.Contains(nombre) && x.Activo == true);
-            List<Proveedores> proveedoresLts = await _ProveedorRepository.GetProveedoresFilterAsync(condicon);
-            List<string> proveedoresString = proveedoresLts.Select(x => x.RazonSocial).ToList();
-            return proveedoresString;
-        }
 
         public async Task<bool> InsertProveedorAsync(ProveedoresDTOs proveedoresDTOs)
         {

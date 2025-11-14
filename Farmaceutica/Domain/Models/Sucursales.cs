@@ -2,6 +2,7 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace Domain.Models;
 
@@ -14,16 +15,16 @@ public partial class Sucursales
     public string Direccion { get; set; }
 
     public int? LocalidadId { get; set; }
-
+    [JsonIgnore]
     public virtual ICollection<Compras> Compras { get; set; } = new List<Compras>();
-
+    [JsonIgnore]
     public virtual ICollection<EmpleadosSucursales> EmpleadosSucursales { get; set; } = new List<EmpleadosSucursales>();
-
+    [JsonIgnore]
     public virtual ICollection<Facturas> Facturas { get; set; } = new List<Facturas>();
-
+    [JsonIgnore]
     public virtual ICollection<InventariosMedicamentos> InventariosMedicamentos { get; set; } = new List<InventariosMedicamentos>();
-
+    [JsonIgnore]
     public virtual ICollection<InventariosProductos> InventariosProductos { get; set; } = new List<InventariosProductos>();
-
+    [JsonIgnore]
     public virtual Localidades Localidad { get; set; }
 }

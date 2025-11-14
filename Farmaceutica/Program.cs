@@ -77,6 +77,14 @@ namespace Farmaceutica
             builder.Services.AddScoped<IDetalleCompraRepository, DetalleCompraRepository>();
             builder.Services.AddScoped<DetalleCompraService>();
 
+            // EMPLEADOS
+            builder.Services.AddScoped<IEmpleadoRepostiory, EmpleadoRepository>();
+            builder.Services.AddScoped<EmpleadoServices>();
+
+            // REPARTIDOR
+            builder.Services.AddScoped<IRepartidorRepository, RepartidorRepository>();
+            builder.Services.AddScoped<RepartidorServices>();
+
             var app = builder.Build();
 
             if (app.Environment.IsDevelopment())

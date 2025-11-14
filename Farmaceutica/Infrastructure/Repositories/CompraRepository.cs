@@ -51,88 +51,26 @@ namespace Farmaceutica.Infrastructure.Repositories
             return compras;
         }
 
-        public async Task<bool> InsertCompraAsync(CompraDto compra, List<DetallesCompras> details)
+        public async Task<bool> InsertCompraAsync(Compras compra)
         {
-            var empleadoID = new OutputParameter<int?>();
-            var proveedorID = new OutputParameter<int?>();
-            var repartidorID = new OutputParameter<int?>();
-            var sucursalID = new OutputParameter<int?>();
-
-            await _Context.Procedures.sp_TraerTablasAsync(
-                compra.EmpleadoDni,
-                compra.Proveedor,
-                compra.RepartidorGmail,
-                compra.Sucursal,
-                empleadoID,
-                proveedorID,
-                repartidorID,
-                sucursalID
-            );
-
-            if (empleadoID.Value == null)
-                throw new ArgumentException("Empleado no encontrado");
-            if (proveedorID.Value == null)
-                throw new ArgumentException("Proveedor no encontrado");
-            if (repartidorID.Value == null)
-                throw new ArgumentException("Repartidor no encontrado");
-            if (sucursalID.Value == null)
-                throw new ArgumentException("Sucursal no encontrado");
-
-            var maestro = new Compras()
-            {
-                EmpleadoId = empleadoID.Value,
-                ProveedorId = proveedorID.Value,
-                RepartidorId = repartidorID.Value,
-                SucursalId = sucursalID.Value,
-                FechaCompra = compra.FechaCompra,
-                DetallesCompras = details,
-                Activo = compra.Activo
-            };
-
-            await _Context.Compras.AddAsync(maestro);
+            await _Context.Compras.AddAsync(compra);
 
             return await _Context.SaveChangesAsync() > 0;
         }
 
-        public async Task<bool> UpdateCompraAsync(int id, CompraDto compra, List<DetallesCompras> details)
+        public async Task<bool> UpdateCompraAsync(int id, Compras compra)
         {
-            var empleadoID = new OutputParameter<int?>();
-            var proveedorID = new OutputParameter<int?>();
-            var repartidorID = new OutputParameter<int?>();
-            var sucursalID = new OutputParameter<int?>();
-
-            await _Context.Procedures.sp_TraerTablasAsync(
-                compra.EmpleadoDni,
-                compra.Proveedor,
-                compra.RepartidorGmail,
-                compra.Sucursal,
-                empleadoID,
-                proveedorID,
-                repartidorID,
-                sucursalID
-            );
-
-            if (empleadoID.Value == null)
-                throw new ArgumentException("EmpleadoID no encontrado");
-            if (proveedorID.Value == null)
-                throw new ArgumentException("ProveedorID no encontrado");
-            if (repartidorID.Value == null)
-                throw new ArgumentException("RepartidorID no encontrado");
-            if (sucursalID.Value == null)
-                throw new ArgumentException("SucursalID no encontrado");
-
             var objTrack = await _Context.Compras.FindAsync(id);
             if (objTrack == null) { throw new InvalidOperationException(); }
+            _Context.Entry(objTrack).CurrentValues.SetValues(objTrack);
 
-            objTrack.EmpleadoId = empleadoID.Value;
-            objTrack.SucursalId = sucursalID.Value;
-            objTrack.RepartidorId = repartidorID.Value;
-            objTrack.ProveedorId = proveedorID.Value;
+            objTrack.SucursalId = compra.SucursalId;
+            objTrack.EmpleadoId = compra.EmpleadoId;
+            objTrack.ProveedorId = compra.ProveedorId;
+            objTrack.RepartidorId = compra.RepartidorId;
             objTrack.FechaCompra = compra.FechaCompra;
             objTrack.Activo = compra.Activo;
-            objTrack.DetallesCompras = details;
-
-            _Context.Entry(objTrack).CurrentValues.SetValues(objTrack);
+            objTrack.DetallesCompras = compra.DetallesCompras;
 
             return await _Context.SaveChangesAsync() > 0;
         }
