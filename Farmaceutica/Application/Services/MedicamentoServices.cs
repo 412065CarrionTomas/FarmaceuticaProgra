@@ -38,7 +38,8 @@ namespace FarmaceuticaBD1.Application.Services
                 (string.IsNullOrWhiteSpace(nombre) || x.Medicamento.NombreMedicamento.Contains(nombre)) &&
                 (string.IsNullOrWhiteSpace(codigoBarra) || x.Medicamento.CodigoBarraMedicamentoId == codigoBarra) &&
                 (string.IsNullOrEmpty(sucursal) || x.Sucursal.Descripcion.Contains(sucursal)) &&
-                x.Activo == true;
+                x.Activo == true &&
+                x.Medicamento.Activo == true;
 
             var medicamentosDom = await _MedicamentoRepository.GetAllByFiltersAsync(condicion) ?? new List<InventariosMedicamentos>();
             var medicamentosDto = _Mapper.Map<List<InventarioMedicamentoDTO>>(medicamentosDom);

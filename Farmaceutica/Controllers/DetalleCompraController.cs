@@ -16,6 +16,15 @@ namespace Farmaceutica.Controllers
             _DetalleCompraService = detalleCompraService;
         }
 
+        [HttpGet("obtener_detalle_compra_por_id")]
+        public async Task<IActionResult> Get([FromQuery] int idCompra)
+        {
+            if(idCompra <= 0) return BadRequest("El idCompra debe ser mayor a 0.");
+            var result =  await _DetalleCompraService.GetAllDetallesCompraAsync(idCompra);
+            if(result == null) return NotFound("No se encontraron detalles para la compra especificada.");
+            return Ok(result);
+        }
+
 
         [HttpPost("insertar_detalle_compra")]
         public async Task<IActionResult> Post([FromQuery] int idCompra, [FromBody] DetalleCompraDto value)

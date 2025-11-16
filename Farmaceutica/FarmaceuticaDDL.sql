@@ -576,3 +576,36 @@ BEGIN
 END
 GO
 
+CREATE TRIGGER trg_Compra_ActualizarStock
+ON detalles_compras
+AFTER INSERT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    UPDATE inv
+    SET inv.Stock_Actual = inv.Stock_Actual + i.Cantidad
+    FROM inserted i
+    INNER JOIN MEDICAMENTOS m 
+        ON i.Codigo_Barra_MedicamentoID = m.Codigo_Barra_MedicamentoID
+    INNER JOIN COMPRAS c 
+        ON i.CompraID = c.CompraID
+    INNER JOIN INVENTARIOS_MEDICAMENTOS inv
+        ON inv.MedicamentoID = m.MedicamentoID 
+        AND inv.SucursalID = c.SucursalID
+    WHERE i.Codigo_Barra_MedicamentoID IS NOT NULL;
+
+    UPDATE inv
+    SET inv.Stock_Actual = inv.Stock_Actual + i.Cantidad
+    FROM inserted i
+    INNER JOIN PRODUCTOS p 
+        ON i.Codigo_Barra_ProductoID = p.Codigo_Barra_ProductoID
+    INNER JOIN COMPRAS c 
+        ON i.CompraID = c.CompraID
+    INNER JOIN INVENTARIOS_PRODUCTOS inv
+        ON inv.ProductoID = p.ProductoID 
+        AND inv.SucursalID = c.SucursalID
+    WHERE i.Codigo_Barra_ProductoID IS NOT NULL;
+
+END
+GO

@@ -2,7 +2,7 @@
 {
     public class GetCompraDto
     {
-
+        public int CompraId { get; set; }
         public DateTime FechaFactura { get; set; }
         public string? Empleado { get; set; }
         public string? Proveedor { get; set; }

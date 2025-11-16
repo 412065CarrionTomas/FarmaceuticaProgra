@@ -2,6 +2,7 @@
 using Farmaceutica.Application.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace Farmaceutica.Infrastructure.Repositories
@@ -24,6 +25,13 @@ namespace Farmaceutica.Infrastructure.Repositories
 
             detalle.Activo = false;
             return await _Context.SaveChangesAsync() > 0;
+        }
+
+        public Task<List<DetallesCompras>?> GetAllDetallesComprasAsync(Expression<Func<DetallesCompras, bool>> condicion)
+        {
+            return _Context.DetallesCompras
+                .Where(condicion)
+                .ToListAsync();
         }
 
         public async Task<bool> InsertCompraAsync(int compraId, DetallesCompras detalle, string entidad)

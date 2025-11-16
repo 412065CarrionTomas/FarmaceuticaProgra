@@ -3,6 +3,7 @@ using Domain.Models;
 using Farmaceutica.Application.DTOs.CompraDTOs;
 using Farmaceutica.Application.Interfaces;
 using Farmaceutica.Application.Validates;
+using System.Linq.Expressions;
 
 namespace Farmaceutica.Application.Services
 {
@@ -48,6 +49,12 @@ namespace Farmaceutica.Application.Services
         public async Task<bool> DeleteDetalleCompraAsync(int id)
         {
             return await _DetalleCompraRepository.DeleteCompraAsync(id);
+        }
+
+        public async Task<List<DetallesCompras>?> GetAllDetallesCompraAsync(int idCompra)
+        {
+            Expression<Func<DetallesCompras, bool>> condicion = x => x.CompraId == idCompra && x.Activo == true;
+            return await _DetalleCompraRepository.GetAllDetallesComprasAsync(condicion);
         }
     }
 }
