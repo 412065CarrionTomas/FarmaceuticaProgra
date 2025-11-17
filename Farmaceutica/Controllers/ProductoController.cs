@@ -22,19 +22,33 @@ namespace FarmaceuticaBD1.Controllers
                                             , [FromQuery] string? sucursal =null
                                             , [FromQuery] string? orden = null)
         {
-            var productoDTOLts = await _ProductoServices.GetAllByFilters(nombre, codigoBarra,sucursal, orden);
-            if (productoDTOLts == null) { return NotFound(); }
-            return Ok(productoDTOLts);
+            try
+            {
+                var productoDTOLts = await _ProductoServices.GetAllByFilters(nombre, codigoBarra, sucursal, orden);
+                if (productoDTOLts == null) { return NotFound(); }
+                return Ok(productoDTOLts);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
         }
 
         [HttpGet("obtener_loteProd_por_id")]
         public async Task<IActionResult> GetLote([FromQuery] int id)
         {
-            if (id <= 0) { return BadRequest(); }
-            LoteProductoDto? loteProductoDto =
-                await _ProductoServices.GetLoteProducto(id);
-            if (loteProductoDto == null) { return NotFound(); }
-            return Ok(loteProductoDto);
+            try
+            {
+                if (id <= 0) { return BadRequest(); }
+                LoteProductoDto? loteProductoDto =
+                    await _ProductoServices.GetLoteProducto(id);
+                if (loteProductoDto == null) { return NotFound(); }
+                return Ok(loteProductoDto);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
         }
 
     }

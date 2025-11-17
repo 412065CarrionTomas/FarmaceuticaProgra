@@ -20,12 +20,20 @@ namespace Farmaceutica.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            var result = await _EmpleadoServices.GetEmpleadosAsync();
-            if(result == null || !result.Any())
+            try
             {
-                return NotFound("No se encontraron empleados.");
+                var result = await _EmpleadoServices.GetEmpleadosAsync();
+                if (result == null || !result.Any())
+                {
+                    return NotFound("No se encontraron empleados.");
+                }
+                return Ok(result);
             }
-            return Ok(result);
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+            
         }
 
         

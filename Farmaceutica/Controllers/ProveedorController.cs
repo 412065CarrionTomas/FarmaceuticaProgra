@@ -23,35 +23,63 @@ namespace Farmaceutica.Controllers
         [HttpGet("obtener_proveedores")]
         public async Task<IActionResult> GetAll()
         {
-            var result = await _ProveedorServices.GetAllProveedoresAsync();
-            if (result == null) { return NotFound("No hay proveedores"); }
-            return Ok(result);
+            try
+            {
+                var result = await _ProveedorServices.GetAllProveedoresAsync();
+                if (result == null) { return NotFound("No hay proveedores"); }
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
         }
 
         [HttpPut("insert_proveedor")]
         public async Task<IActionResult> Put([FromBody] ProveedoresDTOs value)
         {
-            var result = await _ProveedorServices.InsertProveedorAsync(value);
-            if (result == false) { return BadRequest("Hubo un problema en el insert del proveedor"); }
-            return Ok(result);
+            try
+            {
+                var result = await _ProveedorServices.InsertProveedorAsync(value);
+                if (result == false) { return BadRequest("Hubo un problema en el insert del proveedor"); }
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
         }
 
         [HttpPost("actualizar_proveedor")]
         public async Task<IActionResult> Post([FromQuery] string cuit, [FromBody] ProveedoresDTOs value)
         {
-            if (string.IsNullOrEmpty(cuit)) { return BadRequest("No pued eingresar cuit vacio."); }
-            var result = await _ProveedorServices.UpdateProveedorAsync(cuit, value);
-            if (result == false) { return BadRequest("Hubo un problema en la actualizacion del proveedor"); }
-            return Ok(result);
+            try
+            {
+                if (string.IsNullOrEmpty(cuit)) { return BadRequest("No pued eingresar cuit vacio."); }
+                var result = await _ProveedorServices.UpdateProveedorAsync(cuit, value);
+                if (result == false) { return BadRequest("Hubo un problema en la actualizacion del proveedor"); }
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
         }
 
         [HttpDelete("borrar_proveedor")]
         public async Task<IActionResult> Delete([FromQuery] string cuit)
         {
-            if (string.IsNullOrEmpty(cuit)) { return BadRequest("No pued eingresar cuit vacio."); }
-            var result = await _ProveedorServices.DeleteProveedorAsync(cuit);
-            if (result == false) { return BadRequest("Hubo un problema en la eliminacion del Proveedor."); }
-            return Ok(result);
+            try
+            {
+                if (string.IsNullOrEmpty(cuit)) { return BadRequest("No pued eingresar cuit vacio."); }
+                var result = await _ProveedorServices.DeleteProveedorAsync(cuit);
+                if (result == false) { return BadRequest("Hubo un problema en la eliminacion del Proveedor."); }
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
         }
     }
 }

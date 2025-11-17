@@ -20,12 +20,20 @@ namespace Farmaceutica.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            var result = await _repartidorServices.GetRepartidoresAsync();
-            if (result == null || !result.Any())
+            try
             {
-                return NotFound("No se encontraron repartidores.");
+                var result = await _repartidorServices.GetRepartidoresAsync();
+                if (result == null || !result.Any())
+                {
+                    return NotFound("No se encontraron repartidores.");
+                }
+                return Ok(result);
             }
-            return Ok(result);
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+            
         }
 
     }

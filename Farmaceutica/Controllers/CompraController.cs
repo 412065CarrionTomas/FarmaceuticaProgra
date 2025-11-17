@@ -24,35 +24,64 @@ namespace Farmaceutica.Controllers
                                                         , string? sucursal = null
                                                         , string? proveedor = null)
         {
-            var listDto = await _CompraServices.GetComprasByFilters(fechaInicio, fechaFin, sucursal, proveedor);
-            if (listDto == null) { return NotFound(); }
-            return Ok(listDto);
+            try
+            {
+                var listDto = await _CompraServices.GetComprasByFilters(fechaInicio, fechaFin, sucursal, proveedor);
+                if (listDto == null) { return NotFound(); }
+                return Ok(listDto);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+
         }
 
 
         [HttpPost("insertar_maestro_detalle")]
         public async Task<IActionResult> Post([FromBody] CompraDto value)
         {
-            var result = await _CompraServices.InsertCompraAsync(value);
-            if (result ==false) { return BadRequest("No se pudo insertar la compra."); }
-            return Ok(result);
+            try
+            {
+                var result = await _CompraServices.InsertCompraAsync(value);
+                if (result == false) { return BadRequest("No se pudo insertar la compra."); }
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
         }
 
         [HttpPut("actulizar_maestro_detalle")]
         public async Task<IActionResult> Put([FromQuery] int id, [FromBody] CompraDto value)
         {
-            if(id <= 0) { return BadRequest("No puede enviar id 0 o menor."); }
-            bool result = await _CompraServices.UpdateComprasAsync(id, value);
-            if(result == false) { return BadRequest("No se puedo actualizar la Compra."); }
-            return Ok(result);
+            try
+            {
+                if (id <= 0) { return BadRequest("No puede enviar id 0 o menor."); }
+                bool result = await _CompraServices.UpdateComprasAsync(id, value);
+                if (result == false) { return BadRequest("No se puedo actualizar la Compra."); }
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
         }
 
         [HttpDelete("borrar_compra")]
         public async Task<IActionResult> Delete(int id)
         {
-            bool result = await _CompraServices.DeleteCompraAsync(id);
-            if(result == false) { BadRequest("No se pudo completar la eliminacion de la factura"); }
-            return Ok(result);
+            try
+            {
+                bool result = await _CompraServices.DeleteCompraAsync(id);
+                if (result == false) { return BadRequest("No se pudo completar la eliminacion de la factura"); }
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
         }
     }
 }

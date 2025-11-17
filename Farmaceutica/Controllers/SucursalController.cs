@@ -20,9 +20,18 @@ namespace Farmaceutica.Controllers
         [HttpGet("sucursales")]
         public async Task<IActionResult> GetSucursal()
         {
-            var sucursal = await _SucursalServices.GetSucursalesAsync();
-            if (sucursal == null) { return NotFound(); }
-            return Ok(sucursal);
+            try
+            {
+                var sucursal = await _SucursalServices.GetSucursalesAsync();
+                if (sucursal == null) { return NotFound(); }
+                return Ok(sucursal);
+
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+            
         }
     }
 }
