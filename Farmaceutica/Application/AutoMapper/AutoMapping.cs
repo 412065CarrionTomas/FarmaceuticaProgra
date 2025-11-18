@@ -42,7 +42,7 @@ namespace Farmaceutica.Application.AutoMapper
             CreateMap<ProveedoresDTOs, Proveedores>()
                 .ReverseMap();
 
-
+            CreateMap<CompraDto, Compras>();
 
 
             // GET MEDICAMENTO DTO

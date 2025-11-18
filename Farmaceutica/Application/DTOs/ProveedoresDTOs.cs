@@ -4,6 +4,7 @@ namespace Farmaceutica.Application.DTOs
 {
     public class ProveedoresDTOs
     {
+        public int ProveedorId { get; set; }
         public string? RazonSocial { get; set; }
 
         public string? Cuit { get; set; }

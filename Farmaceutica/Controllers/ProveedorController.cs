@@ -35,7 +35,7 @@ namespace Farmaceutica.Controllers
             }
         }
 
-        [HttpPut("insert_proveedor")]
+        [HttpPost("insert_proveedor")]
         public async Task<IActionResult> Put([FromBody] ProveedoresDTOs value)
         {
             try
@@ -50,7 +50,7 @@ namespace Farmaceutica.Controllers
             }
         }
 
-        [HttpPost("actualizar_proveedor")]
+        [HttpPut("actualizar_proveedor")]
         public async Task<IActionResult> Post([FromQuery] string cuit, [FromBody] ProveedoresDTOs value)
         {
             try
