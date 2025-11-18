@@ -44,7 +44,8 @@ namespace Farmaceutica.Infrastructure.Repositories
             if (objTrack == null) return false;
 
             objTrack.RazonSocial = proveedor.RazonSocial;
-            objTrack.Cuit = proveedor.Cuit;
+            // No actualizar el CUIT para evitar inconsistencias
+            objTrack.DireccionProveedor = proveedor.DireccionProveedor;
             objTrack.EmailProveedor = proveedor.EmailProveedor;
             objTrack.TelefonoProveedor = proveedor.TelefonoProveedor;
             objTrack.Activo = proveedor.Activo;

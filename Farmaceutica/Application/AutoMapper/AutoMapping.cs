@@ -39,8 +39,8 @@ namespace Farmaceutica.Application.AutoMapper
                     acc.MapFrom(dom => dom.Proveedor.RazonSocial));
 
             //PROVEEDORES
-            CreateMap<ProveedoresDTOs, Proveedores>()
-                .ReverseMap();
+            CreateMap<Proveedores, ProveedoresDTOs>();
+            CreateMap<ProveedoresDTOs, Proveedores>();
 
             CreateMap<CompraDto, Compras>();
 

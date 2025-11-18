@@ -36,16 +36,18 @@ namespace Farmaceutica.Application.Services
             return await _ProveedorRepository.InsertProveedorAsync(proveedorDom);
         }
 
-        public async Task<bool> UpdateProveedorAsync(string cuit, ProveedoresDTOs proveedoresDTOs)
+        public async Task<bool> UpdateProveedorAsync(string cuit, ProveedoresDTOs dto)
         {
-            if (string.IsNullOrEmpty(cuit))
-                throw new ArgumentNullException("No puede ingresar Cuit vacio.");
+            var proveedorExistente = await _ProveedorRepository.GetProveedoresFilterAsync(x => x.Cuit == cuit);
+            var proveedor = proveedorExistente?.FirstOrDefault();
+            if (proveedor == null) return false;
 
-            ProveedorValidate.Validate(proveedoresDTOs);
+            // Mapear solo los campos que pueden cambiar
+            _Mapper.Map(dto, proveedor);
 
-            Proveedores proveedorDom = _Mapper.Map<Proveedores>(proveedoresDTOs);
-            return await _ProveedorRepository.UpdateProveedoresAsync(cuit, proveedorDom);
+            return await _ProveedorRepository.UpdateProveedoresAsync(cuit, proveedor);
         }
+
 
         public async Task<bool> DeleteProveedorAsync(string cuit)
         {
