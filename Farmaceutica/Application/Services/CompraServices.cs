@@ -47,18 +47,21 @@ namespace Farmaceutica.Application.Services
 
         public async Task<bool> InsertCompraAsync(CompraDto compras)
         {
-            if (compras.DetallesCompraDtoLts == null)
-                new ArgumentNullException();
-            
+            if (compras.DetallesCompraDtoLts == null || !compras.DetallesCompraDtoLts.Any())
+                throw new Exception("Debe agregar al menos un detalle.");
+
             var compraDom = _Mapper.Map<Compras>(compras);
+
+            // Aquí debes validar que compraDom.DetallesCompras también tenga elementos
+            if (compraDom.DetallesCompras == null || !compraDom.DetallesCompras.Any())
+                throw new Exception("La compra debe contener al menos un detalle. (Parameter 'DetallesCompras')");
 
             CompraValidate.Validate(compraDom);
 
-            foreach(DetallesCompras d in compraDom.DetallesCompras)
+            foreach (DetallesCompras d in compraDom.DetallesCompras)
             {
                 UpsertDetalleCompraValidate.ReValidateDetail(d);
                 UpsertDetalleCompraValidate.ValidateLogic(d);
-
             }
             return await _CompraRepository.InsertCompraAsync(compraDom);
         }

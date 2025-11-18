@@ -38,11 +38,14 @@ namespace Farmaceutica.Application.AutoMapper
                 .ForMember(dto => dto.Proveedor, acc =>
                     acc.MapFrom(dom => dom.Proveedor.RazonSocial));
 
+
+            CreateMap<CompraDto, Compras>()
+                .ForMember(dest => dest.DetallesCompras, opt => opt.MapFrom(src => src.DetallesCompraDtoLts));
+            CreateMap<DetalleCompraDto, DetallesCompras>();
+
             //PROVEEDORES
             CreateMap<Proveedores, ProveedoresDTOs>();
             CreateMap<ProveedoresDTOs, Proveedores>();
-
-            CreateMap<CompraDto, Compras>();
 
 
             // GET MEDICAMENTO DTO
